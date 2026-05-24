@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { Helmet } from "react-helmet-async";
 
 export type FaqItem = {
@@ -250,9 +251,11 @@ export function Seo({
 export function FAQSection({
   title = "Frequently Asked Questions",
   faqs,
+  icon,
 }: {
   title?: string;
   faqs: FaqItem[];
+  icon?: ReactNode;
 }) {
   if (faqs.length === 0) {
     return null;
@@ -260,7 +263,10 @@ export function FAQSection({
 
   return (
     <section className="mt-16">
-      <h2 className="mb-8 text-foreground">{title}</h2>
+      <h2 className="mb-8 flex items-center gap-3 text-foreground">
+        {icon}
+        {title}
+      </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {faqs.map((faq) => (
           <article key={faq.question} className="bg-card border border-border rounded-xl p-6">

@@ -1,6 +1,7 @@
+import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router";
 import { DESTINATIONS } from "../mockData";
-import { MapPin, Star, Share2, Calendar, Compass, Info, Image as ImageIcon, Utensils, Plane, Facebook, Twitter, Instagram, Link2, ArrowRight } from "lucide-react";
+import { MapPin, Star, Share2, Calendar, Compass, Info, Plane, Facebook, Twitter, Instagram, Link2, ArrowRight, X, ZoomIn } from "lucide-react";
 import {
   FAQSection,
   Seo,
@@ -11,9 +12,199 @@ import {
   truncateDescription,
 } from "../seo";
 
+function BeijingIntroIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 48 48"
+      role="img"
+      aria-label="Beijing city guide"
+      className={className}
+    >
+      <circle cx="24" cy="24" r="22" fill="#fff7ed" />
+      <path
+        d="M10 23.5h28l-4.2-6.3H14.2L10 23.5Z"
+        fill="#dc2626"
+        stroke="#991b1b"
+        strokeWidth="1.6"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M15 16.8h18l-3.2-5H18.2l-3.2 5Z"
+        fill="#f97316"
+        stroke="#991b1b"
+        strokeWidth="1.6"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M14.5 23.5h19v13h-19v-13Z"
+        fill="#b91c1c"
+        stroke="#7f1d1d"
+        strokeWidth="1.6"
+        strokeLinejoin="round"
+      />
+      <path d="M18 27h3.5v9.5H18V27Zm8.5 0H30v9.5h-3.5V27Z" fill="#fef3c7" />
+      <path
+        d="M21.1 36.5v-5.2a2.9 2.9 0 1 1 5.8 0v5.2h-5.8Z"
+        fill="#450a0a"
+      />
+      <path
+        d="M8 38h32M13 23.5h22M17 16.8h14"
+        fill="none"
+        stroke="#7f1d1d"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
+      <circle cx="36.5" cy="11.5" r="3.1" fill="#facc15" />
+    </svg>
+  );
+}
+
+function TravelMapIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 48 48" aria-hidden="true" className={className}>
+      <circle cx="24" cy="24" r="22" fill="#fff7ed" />
+      <path
+        d="M10 13.5 19 10l10 4 9-3.5v24l-9 3.5-10-4-9 3.5v-24Z"
+        fill="#fef3c7"
+        stroke="#92400e"
+        strokeWidth="1.7"
+        strokeLinejoin="round"
+      />
+      <path d="M19 10v24M29 14v24" stroke="#d97706" strokeWidth="1.4" strokeLinecap="round" />
+      <path
+        d="M14 30c4-8 9 2 13-6 3.3-6.6 7.2-2.3 8-7"
+        fill="none"
+        stroke="#dc2626"
+        strokeWidth="2"
+        strokeDasharray="3 3"
+        strokeLinecap="round"
+      />
+      <path
+        d="M31 15.2c0-3.2 2.5-5.7 5.6-5.7s5.6 2.5 5.6 5.7c0 4.2-5.6 9.4-5.6 9.4S31 19.4 31 15.2Z"
+        fill="#dc2626"
+        stroke="#7f1d1d"
+        strokeWidth="1.5"
+      />
+      <circle cx="36.6" cy="15.2" r="2" fill="#fef3c7" />
+    </svg>
+  );
+}
+
+function AttractionsIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 48 48" aria-hidden="true" className={className}>
+      <circle cx="24" cy="24" r="22" fill="#fff7ed" />
+      <path
+        d="M9 29.5h30l-4.4-7H13.4l-4.4 7Z"
+        fill="#dc2626"
+        stroke="#991b1b"
+        strokeWidth="1.6"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M14.5 22.5h19l-3.5-5.6H18l-3.5 5.6Z"
+        fill="#f97316"
+        stroke="#991b1b"
+        strokeWidth="1.6"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M14 29.5h20v8H14v-8Z"
+        fill="#7f1d1d"
+        stroke="#450a0a"
+        strokeWidth="1.6"
+        strokeLinejoin="round"
+      />
+      <path d="M18 33h4M26 33h4" stroke="#fef3c7" strokeWidth="1.6" strokeLinecap="round" />
+      <path
+        d="m36.2 10.2 1.6 3.2 3.5.5-2.6 2.5.6 3.5-3.1-1.6-3.1 1.6.6-3.5-2.6-2.5 3.5-.5 1.6-3.2Z"
+        fill="#facc15"
+        stroke="#92400e"
+        strokeWidth="1.2"
+        strokeLinejoin="round"
+      />
+      <path d="M10 38h28M12 29.5h24" stroke="#7f1d1d" strokeWidth="1.6" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function CuisineIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 48 48" aria-hidden="true" className={className}>
+      <circle cx="24" cy="24" r="22" fill="#fff7ed" />
+      <path d="M13 26h22c0 7-4.6 11-11 11s-11-4-11-11Z" fill="#dc2626" />
+      <path
+        d="M12 26h24M16 37h16"
+        stroke="#7f1d1d"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+      />
+      <path
+        d="M16.5 20.5c0-2.4 2.4-2.4 2.4-4.7M23.5 20.5c0-2.4 2.4-2.4 2.4-4.7M30.5 20.5c0-2.4 2.4-2.4 2.4-4.7"
+        fill="none"
+        stroke="#f97316"
+        strokeWidth="1.9"
+        strokeLinecap="round"
+      />
+      <path d="M15 13.5 35 25M19 10.5 39 22" stroke="#92400e" strokeWidth="1.8" strokeLinecap="round" />
+      <path d="M18 29h12" stroke="#fef3c7" strokeWidth="1.8" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function TravelQuestionsIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 48 48" aria-hidden="true" className={className}>
+      <circle cx="24" cy="24" r="22" fill="#fff7ed" />
+      <path
+        d="M11 14.5h25.5a5 5 0 0 1 5 5v8.8a5 5 0 0 1-5 5H24.4L17 39v-5.7h-6a5 5 0 0 1-5-5v-8.8a5 5 0 0 1 5-5Z"
+        fill="#fef3c7"
+        stroke="#92400e"
+        strokeWidth="1.7"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M20.2 22.2a5.1 5.1 0 0 1 10.1.6c0 4.2-5.1 4.1-5.1 7"
+        fill="none"
+        stroke="#dc2626"
+        strokeWidth="2.4"
+        strokeLinecap="round"
+      />
+      <circle cx="25.2" cy="34.2" r="1.7" fill="#dc2626" />
+      <path
+        d="M12.8 18.8h5.5M12.8 24.2h4"
+        stroke="#f97316"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
 export function Destination() {
   const { id } = useParams();
   const destination = DESTINATIONS.find(d => d.id === id);
+  const [isMapOpen, setIsMapOpen] = useState(false);
+
+  useEffect(() => {
+    if (!isMapOpen) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsMapOpen(false);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isMapOpen]);
 
   if (!destination) {
     return (
@@ -33,6 +224,24 @@ export function Destination() {
   }
 
   const destinationPath = `/destination/${destination.id}`;
+  const destinationMap = (destination as {
+    mapImage?: string;
+    mapTitle?: string;
+    mapDescription?: string;
+  });
+  const destinationImages = destinationMap.mapImage
+    ? [destination.image, destinationMap.mapImage]
+    : destination.image;
+  const aboutIcon =
+    destination.id === "beijing" ? (
+      <BeijingIntroIcon className="w-8 h-8 shrink-0" />
+    ) : (
+      <Info className="w-8 h-8 shrink-0 text-primary" />
+    );
+  const mapIcon = <TravelMapIcon className="w-8 h-8 shrink-0" />;
+  const attractionsIcon = <AttractionsIcon className="w-8 h-8 shrink-0" />;
+  const cuisineIcon = <CuisineIcon className="w-8 h-8 shrink-0" />;
+  const questionsIcon = <TravelQuestionsIcon className="w-8 h-8 shrink-0" />;
   const pageDescription = truncateDescription(
     `Discover ${destination.name}: ${destination.description}`,
   );
@@ -69,7 +278,7 @@ export function Destination() {
     "@id": `${absoluteUrl(destinationPath)}#destination`,
     "name": destination.name,
     "description": destination.description,
-    "image": destination.image,
+    "image": destinationImages,
     "url": absoluteUrl(destinationPath),
     "address": {
       "@type": "PostalAddress",
@@ -82,31 +291,28 @@ export function Destination() {
     }
   };
 
-  const handleShare = (platform: string) => {
+  const handleShare = async (platform: string) => {
     const url = window.location.href;
-    const text = `Check out ${destination.name} - Travel Guide on Roam China!`;
-    
-    let shareUrl = '';
+    const platformName =
+      platform === "twitter" ? "X (Twitter)" : platform.charAt(0).toUpperCase() + platform.slice(1);
+
+    const copyMessage =
+      platform === "copy"
+        ? "Link copied to clipboard!"
+        : `Link copied! You can now paste it in ${platformName}.`;
+
     switch (platform) {
       case 'facebook':
-        shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
-        break;
       case 'twitter':
-        shareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`;
-        break;
-      case 'copy':
-        navigator.clipboard.writeText(url);
-        alert('Link copied to clipboard!');
-        return;
       case 'instagram':
-        // Instagram doesn't have a direct web share intent like FB/Twitter
-        navigator.clipboard.writeText(url);
-        alert('Link copied! You can now paste it in Instagram.');
-        return;
-    }
-    
-    if (shareUrl) {
-      window.open(shareUrl, '_blank', 'width=600,height=400');
+      case 'copy':
+        try {
+          await navigator.clipboard.writeText(url);
+          alert(copyMessage);
+        } catch {
+          window.prompt("Copy this link:", url);
+        }
+        break;
     }
   };
 
@@ -204,7 +410,7 @@ export function Destination() {
           {/* About */}
           <section>
             <h2 className="mb-6 flex items-center gap-3 text-foreground">
-              <Info className="w-8 h-8 text-primary"/> About {destination.name}
+              {aboutIcon} About {destination.name}
             </h2>
             <div className="prose prose-lg text-muted-foreground">
               <p className="leading-relaxed">
@@ -216,11 +422,40 @@ export function Destination() {
             </div>
           </section>
 
+          {destinationMap.mapImage && (
+            <section>
+              <h2 className="mb-6 flex items-center gap-3 text-foreground">
+                {mapIcon} {destinationMap.mapTitle || `${destination.name} Travel Map`}
+              </h2>
+              {destinationMap.mapDescription && (
+                <p className="text-muted-foreground text-lg leading-relaxed mb-6">
+                  {destinationMap.mapDescription}
+                </p>
+              )}
+              <button
+                type="button"
+                onClick={() => setIsMapOpen(true)}
+                aria-label={`Open ${destinationMap.mapTitle || `${destination.name} travel guide map`}`}
+                className="group relative block w-full overflow-hidden rounded-xl border border-border bg-card text-left cursor-zoom-in transition-shadow hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+              >
+                <img
+                  src={destinationMap.mapImage}
+                  alt={destinationMap.mapTitle || `${destination.name} travel guide map`}
+                  className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-[1.015]"
+                  loading="lazy"
+                />
+                <span className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-black/60 text-white opacity-0 shadow-lg backdrop-blur-sm transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
+                  <ZoomIn className="h-5 w-5" aria-hidden="true" />
+                </span>
+              </button>
+            </section>
+          )}
+
           {/* Top Sights */}
           {destination.sights && destination.sights.length > 0 && (
             <section>
               <h2 className="mb-8 flex items-center gap-3 text-foreground">
-                <ImageIcon className="w-8 h-8 text-primary"/> Must-See Attractions
+                {attractionsIcon} Must-See Attractions
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {destination.sights.map((sight, idx) => (
@@ -254,7 +489,7 @@ export function Destination() {
           {destination.foods && destination.foods.length > 0 && (
             <section>
               <h2 className="mb-8 flex items-center gap-3 text-foreground">
-                <Utensils className="w-8 h-8 text-primary"/> Local Cuisine to Try
+                {cuisineIcon} Local Cuisine to Try
               </h2>
               <div className="space-y-6">
                 {destination.foods.map((food, idx) => (
@@ -277,7 +512,7 @@ export function Destination() {
             </section>
           )}
 
-          <FAQSection title={`${destination.name} Travel Questions`} faqs={destinationFaqs} />
+          <FAQSection title={`${destination.name} Travel Questions`} faqs={destinationFaqs} icon={questionsIcon} />
         </div>
 
         {/* Sidebar */}
@@ -342,6 +577,35 @@ export function Destination() {
           </div>
         </div>
       </div>
+
+      {isMapOpen && destinationMap.mapImage && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/85 p-4 backdrop-blur-sm animate-in fade-in duration-200"
+          role="dialog"
+          aria-modal="true"
+          aria-label={destinationMap.mapTitle || `${destination.name} travel guide map`}
+          onClick={() => setIsMapOpen(false)}
+        >
+          <button
+            type="button"
+            onClick={() => setIsMapOpen(false)}
+            aria-label="Close image preview"
+            className="absolute right-4 top-4 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-white/15 text-white shadow-lg backdrop-blur-md transition-colors hover:bg-white/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+          >
+            <X className="h-6 w-6" aria-hidden="true" />
+          </button>
+          <div
+            className="max-h-[92vh] max-w-[96vw] overflow-hidden rounded-xl shadow-2xl animate-in zoom-in-95 duration-200"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <img
+              src={destinationMap.mapImage}
+              alt={destinationMap.mapTitle || `${destination.name} travel guide map`}
+              className="max-h-[92vh] max-w-[96vw] bg-black object-contain"
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }

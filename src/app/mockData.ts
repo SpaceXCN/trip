@@ -1,4 +1,6 @@
 import guangzhouMap from "../imports/ChatGPT_Image_2026_5_20__21_21_11.png";
+import beijingTravelGuideMap from "../imports/beijin-jingdiantu.png";
+import beijingPekingDuck from "../imports/beijing-peking-duck.png";
 
 export const CUISINES = [
   {
@@ -136,6 +138,9 @@ export const DESTINATIONS = [
     id: "beijing",
     name: "Beijing",
     image: "https://images.unsplash.com/photo-1603120527222-33f28c2ce89e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmb3JiaWRkZW4lMjBjaXR5JTIwYmVpamluZ3xlbnwxfHx8fDE3NzkxNjkyNTl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    mapImage: beijingTravelGuideMap,
+    mapTitle: "Beijing Travel Guide Map",
+    mapDescription: "A visual route map highlighting Beijing's top attractions, travel tips, and must-try local foods for first-time visitors.",
     description: "The capital city of China, Beijing is a city where ancient history meets modern innovation. It is home to some of the world's most iconic landmarks and offers a profound glimpse into China's imperial past.",
     rating: 4.9,
     reviews: 5205,
@@ -169,7 +174,7 @@ export const DESTINATIONS = [
       {
         id: "peking-duck",
         name: "Peking Duck",
-        image: "https://images.unsplash.com/photo-1563409236302-8442b5e644df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwZWtpbmclMjBkdWNrfGVufDF8fHx8MTc3OTIwMTE3MHww&ixlib=rb-4.1.0&q=80&w=1080",
+        image: beijingPekingDuck,
         description: "The legendary crispy roast duck served with thin pancakes, sweet bean sauce, and scallions.",
         menuItems: [
           { name: "Whole Roast Duck", image: "https://images.unsplash.com/photo-1614926994586-d0a318165f26?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGluZXNlJTIwcm9hc3RlZCUyMGR1Y2t8ZW58MXx8fHwxNzc5NTg2NjEyfDA&ixlib=rb-4.1.0&q=80&w=1080", description: "The definitive Beijing experience. The duck is roasted over fruitwood fires until the skin is glass-like and shattered-crisp. A master chef expertly carves it table-side into exactly 108 slices, meant to be wrapped in paper-thin wheat pancakes with sweet bean sauce, cucumber, and scallions." },
