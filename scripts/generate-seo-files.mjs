@@ -90,6 +90,21 @@ ${routePaths
 const robots = `User-agent: *
 Allow: /
 
+User-agent: Googlebot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
 Sitemap: ${siteUrl}/sitemap.xml
 `;
 
