@@ -1,0 +1,26 @@
+# Roam China
+
+Roam China is a practical travel guide for international visitors planning trips to China. It focuses on destinations, day-by-day itineraries, regional Chinese food, local transport, mobile payments, travel apps, and cultural tips.
+
+## Primary Pages
+
+- [Home](https://cntripaimap.online/): Overview of China travel planning resources.
+- [China destinations](https://cntripaimap.online/destinations): City and region guides for Beijing, Shanghai, Xi'an, Chengdu, Guilin, Hangzhou, Hong Kong, and Zhangjiajie.
+- [China itineraries](https://cntripaimap.online/itineraries): Curated travel routes including classic first-time trips, nature routes, Silk Road travel, and Guangzhou food travel.
+- [Chinese cuisines](https://cntripaimap.online/cuisines): Regional cuisine guide covering major culinary traditions and signature dishes.
+- [Travel guides](https://cntripaimap.online/guides): Practical articles for first-time visitors, mobile payments, apps, transport, and food.
+
+## Useful Deep Links
+
+- [Beijing travel guide](https://cntripaimap.online/destination/beijing): Imperial sights, Great Wall planning, and Peking duck.
+- [Shanghai travel guide](https://cntripaimap.online/destination/shanghai): Bund, Lujiazui, gardens, and xiaolongbao.
+- [Chengdu travel guide](https://cntripaimap.online/destination/chengdu): Panda base, teahouses, Sichuan food, and relaxed city travel.
+- [Classic 14-day China itinerary](https://cntripaimap.online/itinerary/classic-14-days): Beijing, Xi'an, Chengdu, and Shanghai.
+- [Chinese travel apps guide](https://cntripaimap.online/guide/g2): Alipay, WeChat, Didi, maps, translation, and connectivity.
+- [Food travel guide to China](https://cntripaimap.online/guide/g3): Regional cuisines, ordering advice, and dining etiquette.
+
+## Editorial Notes
+
+- Audience: English-speaking international travelers visiting China.
+- Tone: practical, direct, and planning-oriented.
+- Content emphasis: answer common pre-trip questions clearly, avoid keyword stuffing, and keep itinerary advice actionable.
