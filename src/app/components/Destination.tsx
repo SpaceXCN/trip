@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router";
 import { DESTINATIONS } from "../mockData";
-import { MapPin, Star, Share2, Calendar, Compass, Info, Plane, Facebook, Twitter, Instagram, Link2, ArrowRight, X, ZoomIn } from "lucide-react";
+import { MapPin, Star, Share2, Calendar, Compass, Info, Plane, Facebook, Twitter, Instagram, Link2, ArrowRight, X, ZoomIn, BookOpen, ClipboardCheck, Train, Hotel, AlertTriangle, ShieldCheck } from "lucide-react";
 import {
   FAQSection,
   Seo,
@@ -181,6 +181,48 @@ function TravelQuestionsIcon({ className }: { className?: string }) {
   );
 }
 
+type DestinationGuide = {
+  seoTitle?: string;
+  seoDescription?: string;
+  seoKeywords?: string[];
+  intro?: string;
+  itinerary?: Array<{
+    day: string;
+    title: string;
+    summary: string;
+    stops: string[];
+    tip?: string;
+  }>;
+  bookingChecklist?: Array<{
+    title: string;
+    detail: string;
+    sourceLabel?: string;
+    sourceUrl?: string;
+  }>;
+  gettingAround?: Array<{
+    title: string;
+    detail: string;
+  }>;
+  stayAreas?: Array<{
+    name: string;
+    bestFor: string;
+    detail: string;
+  }>;
+  mistakes?: Array<{
+    title: string;
+    detail: string;
+  }>;
+  officialSources?: Array<{
+    label: string;
+    url: string;
+    note: string;
+  }>;
+  faqs?: Array<{
+    question: string;
+    answer: string;
+  }>;
+};
+
 export function Destination() {
   const { id } = useParams();
   const destination = DESTINATIONS.find(d => d.id === id);
@@ -229,6 +271,7 @@ export function Destination() {
     mapTitle?: string;
     mapDescription?: string;
   });
+  const destinationGuide = (destination as { guide?: DestinationGuide }).guide;
   const destinationImages = destinationMap.mapImage
     ? [destination.image, destinationMap.mapImage]
     : destination.image;
@@ -243,9 +286,9 @@ export function Destination() {
   const cuisineIcon = <CuisineIcon className="w-8 h-8 shrink-0" />;
   const questionsIcon = <TravelQuestionsIcon className="w-8 h-8 shrink-0" />;
   const pageDescription = truncateDescription(
-    `Discover ${destination.name}: ${destination.description}`,
+    destinationGuide?.seoDescription || `Discover ${destination.name}: ${destination.description}`,
   );
-  const destinationFaqs = [
+  const defaultDestinationFaqs = [
     {
       question: `What is ${destination.name} best known for?`,
       answer: destination.description,
@@ -270,6 +313,9 @@ export function Destination() {
           : `${destination.name} has regional dishes worth checking at busy local restaurants and markets.`,
     },
   ];
+  const destinationFaqs = destinationGuide?.faqs || defaultDestinationFaqs;
+  const destinationKeywords =
+    destinationGuide?.seoKeywords || [`${destination.name} travel guide`, `${destination.name} China`, "China destination guide"];
 
   // Generate JSON-LD for the destination
   const jsonLd = {
@@ -290,6 +336,45 @@ export function Destination() {
       "reviewCount": destination.reviews
     }
   };
+  const sightsItemListJsonLd =
+    destination.sights && destination.sights.length > 0
+      ? {
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          "@id": `${absoluteUrl(destinationPath)}#top-attractions`,
+          "name": `${destination.name} must-see attractions`,
+          "itemListElement": destination.sights.map((sight, index) => ({
+            "@type": "ListItem",
+            "position": index + 1,
+            "item": {
+              "@type": "TouristAttraction",
+              "name": sight.name,
+              "description": sight.description,
+              "image": sight.image,
+              "url": absoluteUrl(destinationPath),
+            },
+          })),
+        }
+      : null;
+  const itineraryItemListJsonLd =
+    destinationGuide?.itinerary && destinationGuide.itinerary.length > 0
+      ? {
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          "@id": `${absoluteUrl(destinationPath)}#itinerary`,
+          "name": `${destination.name} 4-5 day itinerary`,
+          "itemListElement": destinationGuide.itinerary.map((day, index) => ({
+            "@type": "ListItem",
+            "position": index + 1,
+            "item": {
+              "@type": "TouristTrip",
+              "name": `${day.day}: ${day.title}`,
+              "description": day.summary,
+              "itinerary": day.stops.join(", "),
+            },
+          })),
+        }
+      : null;
 
   const handleShare = async (platform: string) => {
     const url = window.location.href;
@@ -319,15 +404,15 @@ export function Destination() {
   return (
     <div className="w-full pb-20 bg-background min-h-screen">
       <Seo
-        title={`${destination.name} Travel Guide`}
+        title={destinationGuide?.seoTitle || `${destination.name} Travel Guide`}
         description={pageDescription}
         path={destinationPath}
         image={destination.image}
-        keywords={[`${destination.name} travel guide`, `${destination.name} China`, "China destination guide"]}
+        keywords={destinationKeywords}
         jsonLd={[
           buildWebPageJsonLd({
             path: destinationPath,
-            name: `${destination.name} Travel Guide`,
+            name: destinationGuide?.seoTitle || `${destination.name} Travel Guide`,
             description: pageDescription,
             image: destination.image,
           }),
@@ -337,6 +422,8 @@ export function Destination() {
             { name: destination.name, path: destinationPath },
           ]),
           jsonLd,
+          sightsItemListJsonLd,
+          itineraryItemListJsonLd,
           buildFaqJsonLd(destinationFaqs),
         ]}
       />
@@ -419,6 +506,11 @@ export function Destination() {
               <p className="leading-relaxed mt-4">
                 Whether you are looking to explore historical landmarks, taste authentic local cuisine, or simply wander through bustling streets, {destination.name} has something to offer for every international traveler looking to experience the real China.
               </p>
+              {destinationGuide?.intro && (
+                <p className="leading-relaxed mt-4">
+                  {destinationGuide.intro}
+                </p>
+              )}
             </div>
           </section>
 
@@ -448,6 +540,117 @@ export function Destination() {
                   <ZoomIn className="h-5 w-5" aria-hidden="true" />
                 </span>
               </button>
+            </section>
+          )}
+
+          {destinationGuide?.itinerary && destinationGuide.itinerary.length > 0 && (
+            <section>
+              <h2 className="mb-8 flex items-center gap-3 text-foreground">
+                <BookOpen className="w-8 h-8 shrink-0 text-primary" /> 4-5 Day Beijing Itinerary
+              </h2>
+              <div className="space-y-5">
+                {destinationGuide.itinerary.map((day) => (
+                  <article key={day.day} className="rounded-xl border border-border bg-card p-5 sm:p-6">
+                    <div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+                      <div>
+                        <div className="mb-2 inline-flex rounded-md bg-primary/10 px-3 py-1 text-sm font-semibold text-primary">
+                          {day.day}
+                        </div>
+                        <h3 className="text-card-foreground">{day.title}</h3>
+                      </div>
+                    </div>
+                    <p className="mb-4 leading-relaxed text-muted-foreground">{day.summary}</p>
+                    <div className="mb-4 flex flex-wrap gap-2">
+                      {day.stops.map((stop) => (
+                        <span key={stop} className="rounded-md bg-secondary px-3 py-1 text-sm text-secondary-foreground">
+                          {stop}
+                        </span>
+                      ))}
+                    </div>
+                    {day.tip && (
+                      <p className="rounded-lg border border-primary/20 bg-primary/5 p-3 text-sm leading-relaxed text-muted-foreground">
+                        <span className="font-semibold text-foreground">Tip: </span>
+                        {day.tip}
+                      </p>
+                    )}
+                  </article>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {destinationGuide?.bookingChecklist && destinationGuide.bookingChecklist.length > 0 && (
+            <section>
+              <h2 className="mb-8 flex items-center gap-3 text-foreground">
+                <ClipboardCheck className="w-8 h-8 shrink-0 text-primary" /> Booking & Ticket Checklist
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                {destinationGuide.bookingChecklist.map((item) => (
+                  <article key={item.title} className="rounded-xl border border-border bg-card p-5">
+                    <h3 className="mb-3 text-card-foreground">{item.title}</h3>
+                    <p className="mb-4 text-sm leading-relaxed text-muted-foreground">{item.detail}</p>
+                    {item.sourceUrl && item.sourceLabel && (
+                      <a href={item.sourceUrl} className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline">
+                        <ShieldCheck className="h-4 w-4" />
+                        {item.sourceLabel}
+                      </a>
+                    )}
+                  </article>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {destinationGuide?.gettingAround && destinationGuide.gettingAround.length > 0 && (
+            <section>
+              <h2 className="mb-8 flex items-center gap-3 text-foreground">
+                <Train className="w-8 h-8 shrink-0 text-primary" /> Getting Around Beijing
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+                {destinationGuide.gettingAround.map((item) => (
+                  <article key={item.title} className="rounded-xl border border-border bg-card p-5">
+                    <h3 className="mb-3 text-card-foreground">{item.title}</h3>
+                    <p className="text-sm leading-relaxed text-muted-foreground">{item.detail}</p>
+                  </article>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {destinationGuide?.stayAreas && destinationGuide.stayAreas.length > 0 && (
+            <section>
+              <h2 className="mb-8 flex items-center gap-3 text-foreground">
+                <Hotel className="w-8 h-8 shrink-0 text-primary" /> Best Areas to Stay
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                {destinationGuide.stayAreas.map((area) => (
+                  <article key={area.name} className="rounded-xl border border-border bg-card p-5">
+                    <div className="mb-3 flex flex-wrap items-center gap-2">
+                      <h3 className="text-card-foreground">{area.name}</h3>
+                      <span className="rounded-md bg-secondary px-2 py-1 text-xs font-medium text-secondary-foreground">
+                        {area.bestFor}
+                      </span>
+                    </div>
+                    <p className="text-sm leading-relaxed text-muted-foreground">{area.detail}</p>
+                  </article>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {destinationGuide?.mistakes && destinationGuide.mistakes.length > 0 && (
+            <section>
+              <h2 className="mb-8 flex items-center gap-3 text-foreground">
+                <AlertTriangle className="w-8 h-8 shrink-0 text-primary" /> Common First-Time Mistakes
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                {destinationGuide.mistakes.map((mistake) => (
+                  <article key={mistake.title} className="rounded-xl border border-border bg-card p-5">
+                    <h3 className="mb-3 text-card-foreground">{mistake.title}</h3>
+                    <p className="text-sm leading-relaxed text-muted-foreground">{mistake.detail}</p>
+                  </article>
+                ))}
+              </div>
             </section>
           )}
 
@@ -559,6 +762,27 @@ export function Destination() {
               )}
             </ul>
           </div>
+
+          {destinationGuide?.officialSources && destinationGuide.officialSources.length > 0 && (
+            <div className="bg-card p-6 rounded-xl border border-border shadow-sm">
+              <h3 className="mb-4 text-card-foreground">Official Planning Sources</h3>
+              <div className="space-y-4">
+                {destinationGuide.officialSources.map((source) => (
+                  <a
+                    key={source.url}
+                    href={source.url}
+                    className="block rounded-lg border border-border p-4 transition-colors hover:border-primary/50 hover:bg-secondary/40"
+                  >
+                    <span className="mb-2 flex items-center gap-2 text-sm font-medium text-primary">
+                      <ShieldCheck className="h-4 w-4" />
+                      {source.label}
+                    </span>
+                    <span className="block text-xs leading-relaxed text-muted-foreground">{source.note}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
 
           <div className="bg-primary p-8 rounded-xl text-primary-foreground border border-border">
             <h3 className="mb-3 text-primary-foreground">Related Guides</h3>

@@ -38,6 +38,10 @@ const cuisineIds = [
 
 const foodIds = [
   "peking-duck",
+  "zhajiangmian",
+  "jianbing",
+  "mutton-hot-pot",
+  "beijing-yogurt",
   "xiaolongbao",
   "sichuan-hot-pot",
   "guilin-rice-noodles",

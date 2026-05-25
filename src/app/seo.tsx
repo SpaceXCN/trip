@@ -115,7 +115,7 @@ export function buildWebPageJsonLd({
   description,
   image,
   type = "WebPage",
-  dateModified = "2026-05-24",
+  dateModified = "2026-05-25",
 }: {
   path: string;
   name: string;

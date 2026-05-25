@@ -141,7 +141,7 @@ export const DESTINATIONS = [
     mapImage: beijingTravelGuideMap,
     mapTitle: "Beijing Travel Guide Map",
     mapDescription: "A visual route map highlighting Beijing's top attractions, travel tips, and must-try local foods for first-time visitors.",
-    description: "The capital city of China, Beijing is a city where ancient history meets modern innovation. It is home to some of the world's most iconic landmarks and offers a profound glimpse into China's imperial past.",
+    description: "Beijing is the best first stop for understanding China: imperial palaces, grand ritual temples, restored Great Wall sections, hutong neighborhoods, serious museums, and northern Chinese food traditions all sit within one highly connected capital city.",
     rating: 4.9,
     reviews: 5205,
     tags: ["History", "Culture", "Iconic"],
@@ -152,22 +152,40 @@ export const DESTINATIONS = [
     },
     sights: [
       {
-        name: "The Great Wall (Mutianyu)",
+        name: "Mutianyu Great Wall",
         image: "https://images.unsplash.com/photo-1608037521277-154cd1b89191?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxncmVhdCUyMHdhbGwlMjBjaGluYXxlbnwxfHx8fDE3NzkxODc4MzF8MA&ixlib=rb-4.1.0&q=80&w=1080",
         rating: 4.9,
-        description: "A less crowded and beautifully restored section of the iconic Great Wall of China, offering stunning views and a toboggan ride down."
+        description: "A restored, scenic Great Wall section that works well for first-time visitors who want strong views, easier logistics, and cable car options."
       },
       {
         name: "Forbidden City",
         image: "https://images.unsplash.com/photo-1603120527222-33f28c2ce89e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmb3JiaWRkZW4lMjBjaXR5JTIwYmVpamluZ3xlbnwxfHx8fDE3NzkxNjkyNTl8MA&ixlib=rb-4.1.0&q=80&w=1080",
         rating: 4.8,
-        description: "The massive imperial palace complex from the Ming and Qing dynasties. Booking tickets weeks in advance is highly recommended."
+        description: "The core imperial palace of the Ming and Qing dynasties. Reserve in advance because the Palace Museum does not sell same-day tickets."
       },
       {
         name: "Temple of Heaven",
         image: "https://images.unsplash.com/photo-1584872589930-e99fe5bf4408?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZW1wbGUlMjBvZiUyMGhlYXZlbiUyMGJlaWppbmd8ZW58MXx8fHwxNzc5MjAxMTcwfDA&ixlib=rb-4.1.0&q=80&w=1080",
         rating: 4.7,
-        description: "An architectural masterpiece where emperors used to pray for good harvests. The surrounding park is great for seeing locals practice Tai Chi."
+        description: "A Ming and Qing imperial ritual complex with the Hall of Prayer for Good Harvests, Echo Wall, Circular Mound Altar, and a lively local park scene."
+      },
+      {
+        name: "Summer Palace",
+        image: "https://upload.wikimedia.org/wikipedia/commons/d/db/Longevity_Hill_of_the_Summer_Palace.jpg",
+        rating: 4.7,
+        description: "A lakeside imperial garden with Kunming Lake, Long Corridor, Longevity Hill, pavilions, bridges, and a slower half-day rhythm after palace sightseeing."
+      },
+      {
+        name: "Tiananmen Square",
+        image: "https://upload.wikimedia.org/wikipedia/commons/8/83/North_end_of_Tiananmen_Square_and_Tiananmen_Gate.jpg",
+        rating: 4.6,
+        description: "The symbolic heart of modern Beijing, best paired with the Forbidden City and checked carefully for current reservation and security requirements."
+      },
+      {
+        name: "Hutong and Shichahai",
+        image: "https://upload.wikimedia.org/wikipedia/commons/a/a8/Beijing_Shichahai_1.jpg",
+        rating: 4.6,
+        description: "Historic alleyways, courtyard homes, lakeside lanes, cafes, snack shops, and evening walks that show a more intimate side of Beijing."
       }
     ],
     foods: [
@@ -181,8 +199,242 @@ export const DESTINATIONS = [
           { name: "Duck Bone Soup", image: "https://images.unsplash.com/photo-1624067046879-cca70a7cf79c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGluZXNlJTIwZm9vZCUyMHNvdXB8ZW58MXx8fHwxNzc5NTg2NjIxfDA&ixlib=rb-4.1.0&q=80&w=1080", description: "After the prime cuts are carved, the remaining duck frame is slow-boiled for hours with Napa cabbage and soft tofu. This process yields a comforting, milky-white broth that serves as a perfect, palate-cleansing finale to the rich roast duck meal." },
           { name: "Sautéed Duck Heart", image: "https://images.unsplash.com/photo-1512058564366-18510be2db19?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGluZXNlJTIwZm9vZHxlbnwxfHx8fDE3Nzk1ODY4MTJ8MA&ixlib=rb-4.1.0&q=80&w=1080", description: "A classic example of Chinese nose-to-tail culinary philosophy. Fresh duck hearts are meticulously cleaned, scored, and wok-seared over maximum heat with garlic and chili, arriving at the table with a distinctive, deeply savory snap and chew." }
         ]
+      },
+      {
+        id: "zhajiangmian",
+        name: "Zhajiangmian",
+        image: "https://upload.wikimedia.org/wikipedia/commons/e/e8/Zhajiangmian_after_stirring_at_Fangzhuanchang_%2820210115131416%29.jpg",
+        description: "Beijing-style wheat noodles mixed with a salty-sweet fermented soybean paste, minced pork, cucumber, radish, and bean sprouts.",
+        menuItems: [
+          { name: "Classic Zhajiangmian", image: "https://upload.wikimedia.org/wikipedia/commons/e/e8/Zhajiangmian_after_stirring_at_Fangzhuanchang_%2820210115131416%29.jpg", description: "Thick wheat noodles are tossed with dark soybean paste, diced pork, and crisp vegetable toppings. The pleasure is in mixing every strand until the sauce coats the bowl evenly." },
+          { name: "Old Beijing Noodle Set", image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080", description: "Many traditional shops serve the noodles with several small vegetable plates, letting you adjust crunch, freshness, and saltiness as you eat." },
+          { name: "Vegetable Zhajiangmian", image: "https://images.unsplash.com/photo-1627308595229-7830a5c91f9f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080", description: "A lighter version built around noodles, bean paste, and seasonal vegetables. It is useful for travelers who want Beijing flavor without a heavy roast-duck meal." }
+        ]
+      },
+      {
+        id: "jianbing",
+        name: "Jianbing",
+        image: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Jianbing_Guozi_20170610.jpg",
+        description: "A fast breakfast crepe with egg, savory sauce, herbs, and a crisp cracker folded inside for crunch.",
+        menuItems: [
+          { name: "Classic Breakfast Jianbing", image: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Jianbing_Guozi_20170610.jpg", description: "A thin batter crepe is spread on a hot griddle, brushed with sauce, filled with egg and herbs, then folded around a crisp cracker for a portable morning meal." },
+          { name: "Jianbing with Sausage", image: "https://upload.wikimedia.org/wikipedia/commons/7/7a/Jianbing_Guozi_20180623.jpg", description: "A fuller street-food version adds sausage or extra egg, making it more filling before a long palace or museum day." },
+          { name: "Spicy Jianbing", image: "https://upload.wikimedia.org/wikipedia/commons/e/eb/Jianbing_being_prepared.jpg", description: "Ask for chili sauce if you want a sharper version. It is still quick, affordable, and easy to eat near subway stations and morning markets." }
+        ]
+      },
+      {
+        id: "mutton-hot-pot",
+        name: "Mutton Hot Pot",
+        image: "https://upload.wikimedia.org/wikipedia/commons/1/15/Instant-boiled_mutton_of_Beijing.jpg",
+        description: "A northern Beijing winter favorite built around thin-sliced lamb, a copper pot, clear broth, sesame dipping sauce, and vegetables.",
+        menuItems: [
+          { name: "Hand-Sliced Mutton", image: "https://upload.wikimedia.org/wikipedia/commons/1/15/Instant-boiled_mutton_of_Beijing.jpg", description: "Thin slices of mutton are swished briefly in a clear copper-pot broth, then dipped into sesame paste, fermented tofu, chive flower sauce, and chili oil." },
+          { name: "Vegetable and Tofu Platter", image: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080", description: "Leafy greens, mushrooms, tofu, and vermicelli balance the lamb and soak up the clean broth after several rounds of cooking." },
+          { name: "Sesame Sauce Dip", image: "https://upload.wikimedia.org/wikipedia/commons/c/ce/Instant-boiled_mutton_with_sesame_sauce.jpg", description: "The dipping sauce is the signature: nutty sesame paste loosened with condiments and aromatics until it clings to every slice of lamb." }
+        ]
+      },
+      {
+        id: "beijing-yogurt",
+        name: "Beijing Yogurt",
+        image: "https://images.unsplash.com/photo-1488477181946-6428a0291777?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080",
+        description: "A nostalgic ceramic-jar yogurt snack sold near hutongs, parks, and old-style snack shops.",
+        menuItems: [
+          { name: "Ceramic Jar Yogurt", image: "https://images.unsplash.com/photo-1488477181946-6428a0291777?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080", description: "Cool, lightly sweet yogurt served in a small jar. It is a simple break between dense sightseeing stops and is easy to find around older neighborhoods." },
+          { name: "Hutong Snack Stop", image: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080", description: "Pair yogurt with sesame buns, candied fruit, or other light snacks while walking around Shichahai or Nanluoguxiang." },
+          { name: "Cold Summer Yogurt", image: "https://images.unsplash.com/photo-1505252585461-04db1eb84625?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080", description: "In hot months, this is one of the easiest small treats to recommend to travelers who want something local but not heavy." }
+        ]
       }
-    ]
+    ],
+    guide: {
+      seoTitle: "Beijing Travel Guide: 4-5 Day Itinerary for First-Time Visitors",
+      seoDescription: "Plan a first Beijing trip with a practical 4-5 day itinerary, top things to do, ticket booking tips, subway advice, where to stay, local food, and common mistakes.",
+      seoKeywords: [
+        "Beijing travel guide",
+        "Beijing itinerary 4 days",
+        "things to do in Beijing",
+        "Beijing first time visitor",
+        "where to stay in Beijing",
+        "Beijing food guide"
+      ],
+      intro: "For most first-time visitors, Beijing works best as a 4-5 day base: one day for the Forbidden City and Tiananmen area, one day for the Temple of Heaven and hutongs, one full day for the Great Wall, one day for the Summer Palace and museums, and an optional fifth day for slower food, shopping, or a backup weather day.",
+      itinerary: [
+        {
+          day: "Day 1",
+          title: "Forbidden City, Tiananmen Area, Jingshan and Peking Duck",
+          summary: "Start with Beijing's imperial axis. Visit Tiananmen Square if current reservation rules allow, enter the Forbidden City with a pre-booked ticket, then climb Jingshan Park for the classic palace roof view.",
+          stops: ["Tiananmen Square", "Forbidden City", "Jingshan Park", "Peking Duck dinner"],
+          tip: "Book the Palace Museum first; build the rest of the day around the time slot you secure."
+        },
+        {
+          day: "Day 2",
+          title: "Temple of Heaven, Qianmen and Hutong Walks",
+          summary: "Go early to Temple of Heaven to see both the architecture and local morning life. Spend the afternoon around Qianmen or Dashilar, then walk hutong lanes near Shichahai in the evening.",
+          stops: ["Temple of Heaven", "Qianmen", "Dashilar", "Shichahai hutongs"],
+          tip: "Use this day to balance monuments with street-level Beijing."
+        },
+        {
+          day: "Day 3",
+          title: "Mutianyu Great Wall Day Trip",
+          summary: "Keep one full day for the Great Wall. Mutianyu is the most practical first-visit choice because it combines restored scenery, easier access, and cable car options.",
+          stops: ["Mutianyu Great Wall", "Great Wall viewpoints", "Return to Beijing for hot pot"],
+          tip: "Avoid stacking major city sights after the Wall; traffic and walking can make the day longer than expected."
+        },
+        {
+          day: "Day 4",
+          title: "Summer Palace, Olympic Area and Local Food",
+          summary: "Spend a slower half day at the Summer Palace, then add the Olympic area or a museum depending on weather and energy. Finish with zhajiangmian or mutton hot pot.",
+          stops: ["Summer Palace", "Kunming Lake", "Olympic Park or museum", "Zhajiangmian dinner"],
+          tip: "This is the best flexible day if rain, jet lag, or ticket availability changes your plan."
+        },
+        {
+          day: "Day 5",
+          title: "Optional Buffer Day for Museums, Shopping or Departure",
+          summary: "Use the fifth day for the National Museum, Lama Temple, Panjiayuan, Sanlitun, a cooking-focused food crawl, or a relaxed airport transfer.",
+          stops: ["National Museum or Lama Temple", "Panjiayuan or Sanlitun", "Airport transfer"],
+          tip: "A buffer day makes Beijing much less stressful for first-time travelers."
+        }
+      ],
+      bookingChecklist: [
+        {
+          title: "Reserve the Forbidden City before everything else",
+          detail: "The Palace Museum does not sell same-day tickets. Visitors should purchase in advance through the official website or official WeChat mini program, and the museum normally closes on Mondays except statutory holidays.",
+          sourceLabel: "Beijing Government: The Palace Museum",
+          sourceUrl: "https://english.beijing.gov.cn/travellinginbeijing/museums/202603/t20260320_4562527.html"
+        },
+        {
+          title: "Book Temple of Heaven scenic spots 1-7 days ahead when needed",
+          detail: "The park has broad opening hours, while charged interior attractions operate separately and foreign visitors can book through the Temple of Heaven WeChat Official Account with valid ID documents.",
+          sourceLabel: "Beijing Government: Temple of Heaven",
+          sourceUrl: "https://english.beijing.gov.cn/specials/ticketing/parks/202407/t20240719_3753312.html"
+        },
+        {
+          title: "Prepare mobile payment and subway access on arrival",
+          detail: "Beijing's official subway guidance lists Beijing Pass, Alipay Metro QR, vending machines, manned counters, and tap-to-ride bank card options as practical ways to use the subway.",
+          sourceLabel: "Beijing Government: Beijing Subway",
+          sourceUrl: "https://english.beijing.gov.cn/travellinginbeijing/transportation/beijingsubway/202512/t20251229_4374803.html"
+        },
+        {
+          title: "Use airport visitor service counters if setup is difficult",
+          detail: "Beijing Service counters at Capital and Daxing international arrivals can help foreign visitors with local SIM cards, mobile payment setup, route guidance, and some attraction reservations.",
+          sourceLabel: "Beijing Government: Foreign Visitor Services",
+          sourceUrl: "https://english.beijing.gov.cn/latest/news/202605/t20260507_4639364.html"
+        }
+      ],
+      gettingAround: [
+        {
+          title: "Subway first, taxi second",
+          detail: "Use the subway for the Forbidden City area, Temple of Heaven, Summer Palace, Olympic Park, railway stations, and airport links. Use taxis or ride-hailing mainly for late nights, luggage, or awkward transfers."
+        },
+        {
+          title: "Set up Alipay or a card option before your first ride",
+          detail: "Alipay's Metro QR code, Beijing Pass, station kiosks, manned counters, and tap-to-ride card options all reduce friction compared with buying single tickets every time."
+        },
+        {
+          title: "Treat the Great Wall as a separate transport project",
+          detail: "Mutianyu is outside central Beijing. Choose a reputable transfer, private car, or well-planned public route instead of assuming it works like a normal metro attraction."
+        }
+      ],
+      stayAreas: [
+        {
+          name: "Wangfujing / Dongdan",
+          bestFor: "First-time sightseeing",
+          detail: "Central, convenient for the Forbidden City, museums, shopping streets, and subway transfers. It is the easiest default for a short first visit."
+        },
+        {
+          name: "Qianmen / Dashilar",
+          bestFor: "Historic atmosphere",
+          detail: "Good for travelers who want old Beijing streets, snack shops, and access to the south side of Tiananmen and Temple of Heaven."
+        },
+        {
+          name: "Dongzhimen / Sanlitun",
+          bestFor: "Restaurants and nightlife",
+          detail: "Useful for airport express access, international restaurants, bars, and a more modern evening scene."
+        },
+        {
+          name: "Shichahai / Gulou",
+          bestFor: "Hutong walks",
+          detail: "A characterful area for lakeside walks and courtyard lanes, but choose hotels carefully because some lanes are quieter and less taxi-friendly."
+        }
+      ],
+      mistakes: [
+        {
+          title: "Leaving ticket booking too late",
+          detail: "The Forbidden City is the main risk. Secure it before finalizing the day-by-day itinerary."
+        },
+        {
+          title: "Putting the Great Wall after another major sight",
+          detail: "The Wall is a full-day outing for most travelers. Keep the evening light."
+        },
+        {
+          title: "Underestimating walking distances",
+          detail: "Beijing's historic sites are large. Comfortable shoes matter more than an ambitious checklist."
+        },
+        {
+          title: "Ignoring Monday closures and ID rules",
+          detail: "Some major museums or charged areas close on Mondays or require passport-based booking and entry checks."
+        },
+        {
+          title: "Arriving without payment setup",
+          detail: "A working mobile payment option, card fallback, and translation app make the first 24 hours much smoother."
+        }
+      ],
+      officialSources: [
+        {
+          label: "The Palace Museum booking and visitor information",
+          url: "https://english.beijing.gov.cn/travellinginbeijing/museums/202603/t20260320_4562527.html",
+          note: "Use this before planning your Forbidden City day."
+        },
+        {
+          label: "Temple of Heaven ticketing and opening information",
+          url: "https://english.beijing.gov.cn/specials/ticketing/parks/202407/t20240719_3753312.html",
+          note: "Useful for park entry, charged interior sights, and foreign visitor booking notes."
+        },
+        {
+          label: "Beijing Subway official visitor guide",
+          url: "https://english.beijing.gov.cn/travellinginbeijing/transportation/beijingsubway/202512/t20251229_4374803.html",
+          note: "Check current subway payment and tap-to-ride options."
+        },
+        {
+          label: "GO BEIJING and foreign visitor services",
+          url: "https://english.beijing.gov.cn/latest/news/202605/t20260507_4639364.html",
+          note: "Helpful for airport services, mobile payment setup, city support, and visitor tools."
+        }
+      ],
+      faqs: [
+        {
+          question: "How many days do I need in Beijing for a first visit?",
+          answer: "Plan 4-5 days. Four days cover the Forbidden City, Temple of Heaven, hutongs, Mutianyu Great Wall, Summer Palace, and key food experiences. A fifth day gives you a weather, jet lag, or museum buffer."
+        },
+        {
+          question: "Do I need to book Forbidden City tickets in advance?",
+          answer: "Yes. The Palace Museum does not sell same-day tickets, so book in advance through the official website or official WeChat mini program and bring the same passport or ID used for booking."
+        },
+        {
+          question: "Which Great Wall section is best for first-time visitors to Beijing?",
+          answer: "Mutianyu is the easiest recommendation for most first-time visitors because it is restored, scenic, less intense than wilder sections, and has cable car options."
+        },
+        {
+          question: "What is the best area to stay in Beijing?",
+          answer: "Wangfujing or Dongdan is the safest default for first-time sightseeing. Qianmen is better for historic atmosphere, while Dongzhimen or Sanlitun works well for dining, nightlife, and airport express access."
+        },
+        {
+          question: "Can foreign visitors use Beijing subway easily?",
+          answer: "Yes, but set up payment first. Official guidance lists Beijing Pass, Alipay Metro QR, ticket vending machines, staffed counters, and tap-to-ride bank card options as practical choices."
+        },
+        {
+          question: "When is the best time to visit Beijing?",
+          answer: "Autumn, especially September to November, is the best overall season for clear air, comfortable temperatures, and Great Wall views. Spring is also good, while summer can be hot and crowded."
+        },
+        {
+          question: "Do I need cash or can I use cards in Beijing?",
+          answer: "Mobile payment is the most convenient, but keep a backup card and some cash for small vendors or setup problems. Airport service counters can help foreign visitors activate mobile payment tools."
+        },
+        {
+          question: "Is Beijing suitable for families or older travelers?",
+          answer: "Yes, but plan slower days. Use the subway for central routes, choose hotels near a station, avoid overloading the Great Wall day, and add rest time because palace and park sites involve long walks."
+        }
+      ]
+    }
   },
   {
     id: "shanghai",
