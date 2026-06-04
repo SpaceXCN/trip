@@ -185,6 +185,7 @@ type DestinationGuide = {
   seoTitle?: string;
   seoDescription?: string;
   seoKeywords?: string[];
+  itineraryTitle?: string;
   intro?: string;
   itinerary?: Array<{
     day: string;
@@ -316,6 +317,7 @@ export function Destination() {
   const destinationFaqs = destinationGuide?.faqs || defaultDestinationFaqs;
   const destinationKeywords =
     destinationGuide?.seoKeywords || [`${destination.name} travel guide`, `${destination.name} China`, "China destination guide"];
+  const itineraryTitle = destinationGuide?.itineraryTitle || `${destination.name} Itinerary`;
 
   // Generate JSON-LD for the destination
   const jsonLd = {
@@ -362,7 +364,7 @@ export function Destination() {
           "@context": "https://schema.org",
           "@type": "ItemList",
           "@id": `${absoluteUrl(destinationPath)}#itinerary`,
-          "name": `${destination.name} 4-5 day itinerary`,
+          "name": itineraryTitle,
           "itemListElement": destinationGuide.itinerary.map((day, index) => ({
             "@type": "ListItem",
             "position": index + 1,
@@ -546,7 +548,7 @@ export function Destination() {
           {destinationGuide?.itinerary && destinationGuide.itinerary.length > 0 && (
             <section>
               <h2 className="mb-8 flex items-center gap-3 text-foreground">
-                <BookOpen className="w-8 h-8 shrink-0 text-primary" /> 4-5 Day Beijing Itinerary
+                <BookOpen className="w-8 h-8 shrink-0 text-primary" /> {itineraryTitle}
               </h2>
               <div className="space-y-5">
                 {destinationGuide.itinerary.map((day) => (
@@ -604,7 +606,7 @@ export function Destination() {
           {destinationGuide?.gettingAround && destinationGuide.gettingAround.length > 0 && (
             <section>
               <h2 className="mb-8 flex items-center gap-3 text-foreground">
-                <Train className="w-8 h-8 shrink-0 text-primary" /> Getting Around Beijing
+                <Train className="w-8 h-8 shrink-0 text-primary" /> Getting Around {destination.name}
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                 {destinationGuide.gettingAround.map((item) => (

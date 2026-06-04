@@ -1,6 +1,9 @@
 import guangzhouMap from "../imports/ChatGPT_Image_2026_5_20__21_21_11.png";
 import beijingTravelGuideMap from "../imports/beijin-jingdiantu.png";
 import beijingPekingDuck from "../imports/beijing-peking-duck.png";
+import shanghaiTravelGuideMap from "../imports/shanghai-travel-guide-map.png";
+import chengduTravelGuideMap from "../imports/chengdu-travel-guide-map.png";
+import guilinTravelGuideMap from "../imports/guilin-travel-guide-map.png";
 
 export const CUISINES = [
   {
@@ -440,7 +443,10 @@ export const DESTINATIONS = [
     id: "shanghai",
     name: "Shanghai",
     image: "https://images.unsplash.com/photo-1627484986972-e544190b8abb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzaGFuZ2hhaSUyMHNreWxpbmUlMjBuaWdodHxlbnwxfHx8fDE3NzkxNjkyNjB8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    description: "Shanghai is China's largest city and financial hub. It offers a fascinating mix of East and West, featuring historic European-style architecture right across the river from a futuristic skyline.",
+    mapImage: shanghaiTravelGuideMap,
+    mapTitle: "Shanghai Travel Guide Map",
+    mapDescription: "A treasure-map-style route for a first Shanghai trip, linking the Bund, Lujiazui, Yu Garden, Xintiandi, former French Concession streets, museum time, and a flexible water-town or river-cruise day.",
+    description: "Shanghai is China's easiest big-city finale for first-time visitors: historic Bund architecture, the Lujiazui skyline, classical gardens, walkable former French Concession streets, major museums, shopping neighborhoods, and Jiangnan food traditions all fit into one compact urban base.",
     rating: 4.8,
     reviews: 4420,
     tags: ["Modern", "Shopping", "Nightlife"],
@@ -457,10 +463,40 @@ export const DESTINATIONS = [
         description: "A famous waterfront promenade featuring dozens of historical colonial buildings facing the ultra-modern Lujiazui skyscrapers."
       },
       {
+        name: "Lujiazui Skyline",
+        image: "https://images.unsplash.com/photo-1548919973-5cef591cdbc9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080",
+        rating: 4.8,
+        description: "Shanghai's futuristic finance district, best visited after the Bund for tower views, elevated walkways, and a clear contrast between old and new Shanghai."
+      },
+      {
         name: "Yu Garden",
         image: "https://images.unsplash.com/photo-1609088399054-7661a95fe0e2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx5dSUyMGdhcmRlbiUyMHNoYW5naGFpfGVufDF8fHx8MTc3OTIwMTE3MHww&ixlib=rb-4.1.0&q=80&w=1080",
         rating: 4.7,
         description: "An extensive Chinese garden located beside the City God Temple in the northeast of the Old City. Very beautiful but can be crowded."
+      },
+      {
+        name: "Xintiandi",
+        image: "https://images.unsplash.com/photo-1600581726841-20cf5fc455eb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080",
+        rating: 4.6,
+        description: "A polished lane-house district with restaurants, boutiques, nightlife, and an easy evening rhythm after museum or garden sightseeing."
+      },
+      {
+        name: "Wukang Road and Former French Concession",
+        image: "https://images.unsplash.com/photo-1528185354807-bd2f2f123348?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080",
+        rating: 4.7,
+        description: "Tree-lined streets, historic villas, cafes, bakeries, and photo stops that show Shanghai at walking speed."
+      },
+      {
+        name: "Shanghai Museum East",
+        image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080",
+        rating: 4.7,
+        description: "A strong rainy-day or culture-focused option in Pudong, useful to pair with Lujiazui and Century Avenue."
+      },
+      {
+        name: "Zhujiajiao Water Town",
+        image: "https://images.unsplash.com/photo-1526481280693-3bfa75699f5f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080",
+        rating: 4.5,
+        description: "A practical water-town day trip from Shanghai when you want canals, bridges, tea houses, and a slower Jiangnan atmosphere."
       }
     ],
     foods: [
@@ -475,13 +511,181 @@ export const DESTINATIONS = [
           { name: "Pan-fried Shengjianbao", image: "https://images.unsplash.com/photo-1695712641569-05eee7b37b6d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGluZXNlJTIwc3ByaW5nJTIwcm9sbHN8ZW58MXx8fHwxNzc5NTg2NjQ4fDA&ixlib=rb-4.1.0&q=80&w=1080", description: "Xiaolongbao's heartier, rustic cousin. These thicker-skinned buns are steamed-fried in massive cast-iron pans until their bottoms are aggressively crispy and golden-brown. Topped with sesame seeds and scallions, they conceal an explosively juicy pork center." }
         ]
       }
-    ]
+    ],
+    guide: {
+      seoTitle: "Shanghai Travel Guide: 3-4 Day Itinerary for First-Time Visitors",
+      seoDescription: "Plan a first Shanghai trip with a practical 3-4 day itinerary, Bund and Lujiazui timing, Yu Garden tips, metro advice, where to stay, local food, and common mistakes.",
+      seoKeywords: [
+        "Shanghai travel guide",
+        "Shanghai itinerary 3 days",
+        "things to do in Shanghai",
+        "Shanghai first time visitor",
+        "where to stay in Shanghai",
+        "Shanghai food guide"
+      ],
+      itineraryTitle: "3-4 Day Shanghai Itinerary",
+      intro: "For most first-time visitors, Shanghai works best as a 3-4 day city stay: one day for the Bund, Lujiazui, and a Huangpu River skyline night; one day for Yu Garden, City God Temple, People's Square, and Nanjing Road; one day for Xintiandi, Wukang Road, and former French Concession streets; and an optional fourth day for Shanghai Museum East, Zhujiajiao, or a slower food and shopping buffer.",
+      itinerary: [
+        {
+          day: "Day 1",
+          title: "The Bund, Lujiazui and Huangpu River Skyline",
+          summary: "Start on the Bund to understand Shanghai's old waterfront, cross to Lujiazui for tower views and elevated walkways, then return to the riverfront for the evening lights.",
+          stops: ["The Bund", "Lujiazui", "Shanghai Tower area", "Huangpu River cruise or night walk"],
+          tip: "Save the Bund for both daylight and evening if possible; the skyline changes the feel of the whole city."
+        },
+        {
+          day: "Day 2",
+          title: "Yu Garden, City God Temple, People's Square and Nanjing Road",
+          summary: "Go early to Yu Garden before the densest crowds, sample snacks around City God Temple, then use People's Square and Nanjing Road as a flexible shopping, museum, or food afternoon.",
+          stops: ["Yu Garden", "City God Temple area", "People's Square", "Nanjing Road"],
+          tip: "The garden and bazaar are close but different experiences; keep time for both instead of rushing straight to the shops."
+        },
+        {
+          day: "Day 3",
+          title: "Xintiandi, Wukang Road and Former French Concession Walks",
+          summary: "Spend a slower day on lane-house neighborhoods, cafes, bakeries, boutiques, and tree-lined streets. End at Xintiandi or a local restaurant for a relaxed evening.",
+          stops: ["Xintiandi", "Wukang Road", "Former French Concession", "Xiaolongbao dinner"],
+          tip: "This is the best day to walk without a tight checklist; Shanghai rewards slow neighborhood wandering."
+        },
+        {
+          day: "Day 4",
+          title: "Shanghai Museum East, Zhujiajiao or Departure Buffer",
+          summary: "Use the fourth day for a culture-focused Pudong museum visit, a canal-town trip to Zhujiajiao, a shopping buffer, or an easier airport transfer.",
+          stops: ["Shanghai Museum East", "Zhujiajiao Water Town or Pudong", "Airport transfer"],
+          tip: "Choose one main theme for the final day because cross-city transfers and airport timing can eat more time than expected."
+        }
+      ],
+      bookingChecklist: [
+        {
+          title: "Prepare metro access before the first ride",
+          detail: "Shanghai's official visitor guidance points foreign travelers toward station service counters, self-service machines, payment cards, and app-based options. Set this up before relying on quick subway transfers.",
+          sourceLabel: "Shanghai Government: Metro guide",
+          sourceUrl: "https://english.shanghai.gov.cn/en-Transportation/20231214/c727f5e15eff4b8c9340651dd95f3f7a70.html"
+        },
+        {
+          title: "Consider Shanghai Pass for transit and small payments",
+          detail: "Shanghai Pass is promoted for transport and selected visitor spending, so it can be useful if your bank card or mobile payment setup is uncertain.",
+          sourceLabel: "Shanghai Government: Shanghai Pass",
+          sourceUrl: "https://english.shanghai.gov.cn/en-Transportation/20251011/632be9c7566740d68d16f6777eef7a70.html"
+        },
+        {
+          title: "Use official Shanghai tourist picks for current attraction planning",
+          detail: "Shanghai's official foreign-tourist picks are a useful cross-check for headline sights, districts, and visitor-friendly routes before you lock the day order.",
+          sourceLabel: "Shanghai Government: Tourist picks",
+          sourceUrl: "https://english.shanghai.gov.cn/assets/Download/Top%20Shanghai%20picks%20for%20foreign%20tourists%20%282%20MB%29.pdf"
+        },
+        {
+          title: "Check museum and garden schedules near holidays",
+          detail: "Yu Garden, major museums, and river cruises can shift availability or crowd patterns around weekends and Chinese public holidays. Confirm opening hours before building a fixed day."
+        }
+      ],
+      gettingAround: [
+        {
+          title: "Metro for almost everything central",
+          detail: "Use the metro for the Bund area, Lujiazui, People's Square, Xintiandi, Nanjing Road, Hongqiao, Pudong airport links, and most cross-city transfers."
+        },
+        {
+          title: "Walk the riverfront and lane districts",
+          detail: "The Bund, Nanjing Road, Xintiandi, and former French Concession streets are better at walking pace than from a car window."
+        },
+        {
+          title: "Plan airport and water-town transfers separately",
+          detail: "Pudong, Hongqiao, and Zhujiajiao are not quick neighborhood hops. Build fixed transfer time around luggage, metro changes, or ride-hailing pickup points."
+        }
+      ],
+      stayAreas: [
+        {
+          name: "People's Square / Nanjing Road",
+          bestFor: "First-timers",
+          detail: "The safest default for balanced sightseeing, shopping, metro access, and easy routes to the Bund, Yu Garden, and major stations."
+        },
+        {
+          name: "The Bund",
+          bestFor: "Views",
+          detail: "Best for skyline walks, premium hotels, and a classic Shanghai feel, but expect higher prices and heavier evening crowds."
+        },
+        {
+          name: "Xintiandi / Former French Concession",
+          bestFor: "Dining",
+          detail: "Good for restaurants, cafes, bars, and walkable streets if you want a less hotel-district feel."
+        },
+        {
+          name: "Lujiazui / Pudong",
+          bestFor: "Business and towers",
+          detail: "Convenient for skyline towers, Pudong offices, Shanghai Museum East, and PVG routes, but less atmospheric for old-city walks."
+        }
+      ],
+      mistakes: [
+        {
+          title: "Only seeing Shanghai at night",
+          detail: "The skyline is memorable, but the city needs daylight too: gardens, lane houses, museums, and neighborhood food make the visit feel complete."
+        },
+        {
+          title: "Underestimating cross-river transfers",
+          detail: "The Bund and Lujiazui face each other but still require a planned metro, ferry, tunnel, or taxi transfer."
+        },
+        {
+          title: "Treating Zhujiajiao as a quick add-on",
+          detail: "A water-town visit needs enough time for transport, walking, food, and return logistics. Do it as a half-day or full-day plan."
+        },
+        {
+          title: "Arriving without a payment fallback",
+          detail: "Mobile payment is convenient, but keep a card or Shanghai Pass option ready in case app setup takes longer than expected."
+        }
+      ],
+      officialSources: [
+        {
+          label: "Shanghai Metro official visitor guide",
+          url: "https://english.shanghai.gov.cn/en-Transportation/20231214/c727f5e15eff4b8c9340651dd95f3f7a70.html",
+          note: "Use this for subway payment and station service options."
+        },
+        {
+          label: "Shanghai Pass official guidance",
+          url: "https://english.shanghai.gov.cn/en-Transportation/20251011/632be9c7566740d68d16f6777eef7a70.html",
+          note: "Helpful for visitors who want a transit and payment fallback."
+        },
+        {
+          label: "Top Shanghai picks for foreign tourists",
+          url: "https://english.shanghai.gov.cn/assets/Download/Top%20Shanghai%20picks%20for%20foreign%20tourists%20%282%20MB%29.pdf",
+          note: "Useful for confirming major sights and visitor-friendly districts."
+        }
+      ],
+      faqs: [
+        {
+          question: "How many days do I need in Shanghai for a first visit?",
+          answer: "Plan 3-4 days. Three days cover the Bund, Lujiazui, Yu Garden, Nanjing Road, Xintiandi, Wukang Road, and local food. A fourth day adds a museum, Zhujiajiao, shopping, or an airport buffer."
+        },
+        {
+          question: "What is the best area to stay in Shanghai?",
+          answer: "People's Square or Nanjing Road is the safest default for first-time visitors. The Bund is better for views, while Xintiandi and the former French Concession are better for dining and nightlife."
+        },
+        {
+          question: "Is Shanghai easy to visit by metro?",
+          answer: "Yes. The metro is the best default for central sights, airports, and rail stations. Set up a payment option or Shanghai Pass before your first ride."
+        },
+        {
+          question: "Should I visit Zhujiajiao from Shanghai?",
+          answer: "Visit Zhujiajiao if you have a fourth day or want a canal-town contrast. Skip it on a tight three-day trip unless water towns are a priority."
+        },
+        {
+          question: "When is the best time to visit Shanghai?",
+          answer: "October and November are the best overall months for comfortable weather. Spring is also good, while summer can be hot, humid, and rainy."
+        },
+        {
+          question: "What food should I try in Shanghai?",
+          answer: "Start with xiaolongbao, shengjianbao, local noodles, red-braised dishes, and seasonal Jiangnan snacks."
+        }
+      ]
+    }
   },
   {
     id: "chengdu",
     name: "Chengdu",
     image: "https://images.unsplash.com/photo-1540126034813-121bf29033d2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGVuZ2R1JTIwcGFuZGF8ZW58MXx8fHwxNzc5MDkxNDc4fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    description: "The capital of Sichuan province, famous worldwide for its giant pandas and exceptionally spicy cuisine. Chengdu is known for its incredibly relaxed and laid-back lifestyle.",
+    mapImage: chengduTravelGuideMap,
+    mapTitle: "Chengdu Travel Guide Map",
+    mapDescription: "A treasure-map-style route for Chengdu's first-visit rhythm: pandas early, teahouses and old lanes slowly, Wuhou and Jinli together, Taikoo Li for modern Chengdu, and a day-trip decision between Leshan and Dujiangyan.",
+    description: "Chengdu is the easiest place to experience Sichuan at a relaxed pace: giant pandas, teahouse culture, spicy hot pot, historic shrines, old pedestrian lanes, modern shopping districts, and high-speed rail day trips all fit into a 3-4 day base.",
     rating: 4.9,
     reviews: 3150,
     tags: ["Pandas", "Food", "Relaxed"],
@@ -498,6 +702,24 @@ export const DESTINATIONS = [
         description: "The best place to see giant pandas up close, especially active in the early morning."
       },
       {
+        name: "People's Park",
+        image: "https://images.unsplash.com/photo-1600577916048-804c9191e36f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080",
+        rating: 4.7,
+        description: "A classic Chengdu teahouse stop where travelers can slow down, drink tea, watch local life, and reset after a busy morning."
+      },
+      {
+        name: "Kuanzhai Alley",
+        image: "https://images.unsplash.com/photo-1603459771691-d4022336e755?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080",
+        rating: 4.6,
+        description: "Historic-style lanes with snacks, shops, courtyards, and an easy introduction to Chengdu's old-neighborhood atmosphere."
+      },
+      {
+        name: "Wuhou Shrine",
+        image: "https://images.unsplash.com/photo-1584872589930-e99fe5bf4408?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080",
+        rating: 4.7,
+        description: "A major Three Kingdoms heritage site that pairs naturally with nearby Jinli Ancient Street."
+      },
+      {
         name: "Jinli Ancient Street",
         image: "https://images.unsplash.com/photo-1603459771691-d4022336e755?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxqaW5saSUyMHN0cmVldCUyMGNoZW5nZHV8ZW58MXx8fHwxNzc5MjAxMTcwfDA&ixlib=rb-4.1.0&q=80&w=1080",
         rating: 4.6,
@@ -508,6 +730,12 @@ export const DESTINATIONS = [
         image: "https://images.unsplash.com/photo-1558980971-97f50d0fed00?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsZXNoYW4lMjBnaWFudCUyMGJ1ZGRoYXxlbnwxfHx8fDE3NzkyMDExNzV8MA&ixlib=rb-4.1.0&q=80&w=1080",
         rating: 4.8,
         description: "A 71-meter stone Buddha carved out of a cliff face, easily accessible via a high-speed train day trip from Chengdu."
+      },
+      {
+        name: "Dujiangyan and Mount Qingcheng",
+        image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080",
+        rating: 4.7,
+        description: "A classic day-trip pairing for travelers who prefer ancient engineering, Taoist mountain scenery, and a greener itinerary."
       }
     ],
     foods: [
@@ -522,27 +750,231 @@ export const DESTINATIONS = [
           { name: "Bamboo Shoots", image: "https://images.unsplash.com/photo-1585032226651-759b368d7246?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGluZXNlJTIwZm9vZCUyMGJhbWJvb3xlbnwxfHx8fDE3Nzk1ODY2MjR8MA&ixlib=rb-4.1.0&q=80&w=1080", description: "A crucial palate cleanser and textural counterpoint to the heavy meats. Sliced tender bamboo shoots soak up just enough of the complex, numbing broth while maintaining their refreshing sweetness and satisfying crunch." }
         ]
       }
-    ]
+    ],
+    guide: {
+      seoTitle: "Chengdu Travel Guide: 3-4 Day Itinerary for Pandas, Food and Teahouses",
+      seoDescription: "Plan a first Chengdu trip with a practical 3-4 day itinerary, panda base timing, hot pot, teahouse culture, Wuhou Shrine, Jinli, Leshan or Dujiangyan day trips, and metro advice.",
+      seoKeywords: [
+        "Chengdu travel guide",
+        "Chengdu itinerary 3 days",
+        "Chengdu panda base",
+        "things to do in Chengdu",
+        "Chengdu hot pot",
+        "where to stay in Chengdu"
+      ],
+      itineraryTitle: "3-4 Day Chengdu Itinerary",
+      intro: "For most first-time visitors, Chengdu works best as a 3-4 day base: one early morning for the panda base and a slow teahouse afternoon, one day for Wuhou Shrine, Jinli, Kuanzhai Alley, and hot pot, one modern-city and food day around Taikoo Li or IFS, and an optional fourth day for Leshan Giant Buddha or Dujiangyan and Mount Qingcheng.",
+      itinerary: [
+        {
+          day: "Day 1",
+          title: "Panda Base, People's Park and Teahouse Culture",
+          summary: "Go to the panda base early when pandas are most active, then slow the pace in People's Park with tea, local snacks, and an easy evening meal.",
+          stops: ["Chengdu Panda Base", "People's Park", "Teahouse", "Sichuan hot pot"],
+          tip: "Start early and do not put a heavy attraction after the panda base; the morning is the main event."
+        },
+        {
+          day: "Day 2",
+          title: "Wuhou Shrine, Jinli and Kuanzhai Alley",
+          summary: "Pair Wuhou Shrine with nearby Jinli, then continue to Kuanzhai Alley for old-lane atmosphere, snacks, and a relaxed evening walk.",
+          stops: ["Wuhou Shrine", "Jinli Ancient Street", "Kuanzhai Alley", "Dan dan noodles or hot pot"],
+          tip: "Wuhou and Jinli are close enough to plan together; save taxis or metro rides for the later neighborhood change."
+        },
+        {
+          day: "Day 3",
+          title: "Taikoo Li, IFS, Local Food and Flexible Neighborhoods",
+          summary: "Use the third day for modern Chengdu, shopping, cafes, food, and a flexible rest window. This keeps the itinerary from becoming too attraction-heavy.",
+          stops: ["Taikoo Li", "IFS", "Local food crawl", "Evening hot pot or Sichuan dishes"],
+          tip: "Chengdu is not only a checklist city. Leave space for tea, food, and slower local rhythm."
+        },
+        {
+          day: "Day 4",
+          title: "Leshan Giant Buddha or Dujiangyan and Mount Qingcheng",
+          summary: "Choose one day trip: Leshan for the Giant Buddha and river setting, or Dujiangyan and Mount Qingcheng for ancient irrigation history and mountain scenery.",
+          stops: ["Leshan Giant Buddha or Dujiangyan", "High-speed rail transfer", "Return to Chengdu"],
+          tip: "Pick one day trip, not both, unless you have extra nights. Each deserves its own travel day."
+        }
+      ],
+      bookingChecklist: [
+        {
+          title: "Book panda base tickets before the visit",
+          detail: "The Chengdu Research Base of Giant Panda Breeding provides official ticket information online. Book or confirm current requirements before planning your early-morning panda day.",
+          sourceLabel: "Chengdu Panda Base: Tickets",
+          sourceUrl: "https://www.panda.org.cn/en/service/ticket/"
+        },
+        {
+          title: "Read the panda base visitor notice",
+          detail: "Visitor notices are important for opening arrangements, entry behavior, animal welfare rules, and practical instructions that can affect timing inside the base.",
+          sourceLabel: "Chengdu Panda Base: Visitor notice",
+          sourceUrl: "https://www.panda.org.cn/en/service/notice/"
+        },
+        {
+          title: "Use Chengdu Rail for metro planning",
+          detail: "Chengdu's official rail site is the practical source for metro network planning, station information, and transfer checks.",
+          sourceLabel: "Chengdu Rail Transit",
+          sourceUrl: "https://www.chengdurail.com/"
+        },
+        {
+          title: "Reserve day-trip transport early in peak season",
+          detail: "Leshan and Dujiangyan are common high-speed rail day trips. During weekends and holidays, book train times early and avoid building a same-day return too tightly."
+        }
+      ],
+      gettingAround: [
+        {
+          title: "Metro for city sights",
+          detail: "Use Chengdu Metro for panda base connections, central districts, Taikoo Li, railway stations, and most cross-city transfers."
+        },
+        {
+          title: "Use ride-hailing for awkward last-mile hops",
+          detail: "Some older streets, parks, and restaurant areas are easier by ride-hailing after the nearest metro station."
+        },
+        {
+          title: "Treat day trips as rail projects",
+          detail: "Leshan, Dujiangyan, and Qingcheng are not normal city sights. Confirm station names, train times, attraction transfer, and return windows."
+        }
+      ],
+      stayAreas: [
+        {
+          name: "Chunxi Road / Taikoo Li",
+          bestFor: "First-timers",
+          detail: "The safest default for shopping, food, metro access, and a modern central base."
+        },
+        {
+          name: "Tianfu Square",
+          bestFor: "Transit",
+          detail: "Good for central metro access, museums, and balanced movement across the city."
+        },
+        {
+          name: "Kuanzhai Alley Area",
+          bestFor: "Atmosphere",
+          detail: "Better for old-lane atmosphere and slower evenings, though hotel quality and noise can vary."
+        },
+        {
+          name: "Near East Railway Station",
+          bestFor: "Day trips",
+          detail: "Useful if Leshan, Chongqing, or other rail transfers are a priority, but less atmospheric for casual city wandering."
+        }
+      ],
+      mistakes: [
+        {
+          title: "Visiting the panda base too late",
+          detail: "Pandas are usually most active earlier in the day. A late arrival can turn the main experience into sleepy enclosures and larger crowds."
+        },
+        {
+          title: "Making every meal maximum spicy",
+          detail: "Sichuan food is broad. Mix hot pot with noodles, snacks, tea, lighter dishes, and non-spicy options so the trip remains enjoyable."
+        },
+        {
+          title: "Trying to combine Leshan and Dujiangyan in one day",
+          detail: "Both are worthwhile, but combining them creates a rushed transport day. Choose one unless you have a private plan and extra time."
+        },
+        {
+          title: "Skipping rest time",
+          detail: "Chengdu's appeal is partly its pace. Overloading the itinerary works against the city."
+        }
+      ],
+      officialSources: [
+        {
+          label: "Chengdu Panda Base ticket information",
+          url: "https://www.panda.org.cn/en/service/ticket/",
+          note: "Use this before planning the panda base morning."
+        },
+        {
+          label: "Chengdu Panda Base visitor notice",
+          url: "https://www.panda.org.cn/en/service/notice/",
+          note: "Check practical entry and visitor behavior notes."
+        },
+        {
+          label: "Chengdu Rail Transit official site",
+          url: "https://www.chengdurail.com/",
+          note: "Useful for metro routes, station checks, and transfer planning."
+        }
+      ],
+      faqs: [
+        {
+          question: "How many days do I need in Chengdu for a first visit?",
+          answer: "Plan 3-4 days. Three days cover pandas, teahouses, Wuhou Shrine, Jinli, Kuanzhai Alley, Taikoo Li, and food. A fourth day adds Leshan or Dujiangyan."
+        },
+        {
+          question: "When should I visit the Chengdu panda base?",
+          answer: "Go early in the morning. It gives you the best chance of seeing more active pandas and helps avoid the heaviest crowds."
+        },
+        {
+          question: "Which Chengdu day trip is better, Leshan or Dujiangyan?",
+          answer: "Choose Leshan if you want the Giant Buddha and a dramatic river setting. Choose Dujiangyan and Mount Qingcheng if you prefer ancient engineering, green scenery, and Taoist mountain culture."
+        },
+        {
+          question: "What is the best area to stay in Chengdu?",
+          answer: "Chunxi Road or Taikoo Li is the easiest default for first-time visitors because it has food, shopping, metro access, and central hotels."
+        },
+        {
+          question: "Is Chengdu only for spicy food lovers?",
+          answer: "No. Hot pot is important, but Chengdu also has teahouses, noodles, snacks, dumplings, lighter Sichuan dishes, and many adjustable spice levels."
+        },
+        {
+          question: "Can I use the metro easily in Chengdu?",
+          answer: "Yes. Chengdu Metro is practical for central sights, stations, and many transfers, with ride-hailing useful for last-mile hops."
+        }
+      ]
+    }
   },
   {
     id: "guilin",
     name: "Guilin",
     image: "https://images.unsplash.com/photo-1773318901379-aac92fdf5611?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxndWlsaW4lMjBrYXJzdCUyMG1vdW50YWluc3xlbnwxfHx8fDE3NzkyMDA5MDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    description: "Renowned for its dramatic karst mountain landscapes and the picturesque Li River. Guilin and neighboring Yangshuo have inspired Chinese painters and poets for centuries.",
+    mapImage: guilinTravelGuideMap,
+    mapTitle: "Guilin and Yangshuo Travel Guide Map",
+    mapDescription: "A treasure-map-style route for a nature-focused Guilin plan: city karst sights first, Li River cruise to Yangshuo, Yulong River countryside, Xingping viewpoints, and a Longji Rice Terraces day if time allows.",
+    description: "Guilin and nearby Yangshuo are best for travelers who want China's classic karst landscape: river cruises, limestone peaks, rice terraces, caves, countryside cycling, small-town evenings, and slow scenic days rather than a dense urban checklist.",
     rating: 4.8,
     reviews: 2980,
     tags: ["Nature", "Scenery", "Photography"],
     practicalInfo: {
       bestTime: "Apr - Oct",
-      duration: "2 - 3 Days",
+      duration: "4 Days",
       airport: "Guilin Liangjiang (KWL)"
     },
     sights: [
+      {
+        name: "Guilin City Karst Sights",
+        image: "https://images.unsplash.com/photo-1773318901379-aac92fdf5611?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080",
+        rating: 4.6,
+        description: "Use Guilin city for arrival, river-lake walks, cave options, and a simple first look at the karst landscape before heading to Yangshuo."
+      },
+      {
+        name: "Reed Flute Cave",
+        image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080",
+        rating: 4.5,
+        description: "A classic cave stop near Guilin that works well on arrival day or as a weather-resistant option."
+      },
+      {
+        name: "Two Rivers and Four Lakes",
+        image: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080",
+        rating: 4.6,
+        description: "A scenic city-water system that is especially useful for an easy evening walk or boat ride after arrival."
+      },
       {
         name: "Li River Cruise to Yangshuo",
         image: "https://images.unsplash.com/photo-1556880003-4fcd06418af3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx5YW5nc2h1byUyMHJpdmVyfGVufDF8fHx8MTc3OTIwMTE3MXww&ixlib=rb-4.1.0&q=80&w=1080",
         rating: 4.9,
         description: "Take a scenic boat cruise or bamboo raft down the Li River to see the breathtaking karst limestone peaks."
+      },
+      {
+        name: "Yangshuo and West Street",
+        image: "https://images.unsplash.com/photo-1556880003-4fcd06418af3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080",
+        rating: 4.7,
+        description: "Yangshuo is the best overnight base for countryside views, casual restaurants, evening walks, and nearby river activities."
+      },
+      {
+        name: "Yulong River",
+        image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080",
+        rating: 4.8,
+        description: "A quieter countryside river area near Yangshuo, popular for cycling, bamboo rafting, village views, and slower scenic time."
+      },
+      {
+        name: "Longji Rice Terraces",
+        image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080",
+        rating: 4.8,
+        description: "A mountain rice-terrace day trip or overnight extension, best when you want a bigger landscape contrast beyond the Li River."
       }
     ],
     foods: [
@@ -557,7 +989,179 @@ export const DESTINATIONS = [
           { name: "Pickled Sour Bamboo", image: "https://images.unsplash.com/photo-1585032226651-759b368d7246?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGluZXNlJTIwZm9vZCUyMGJhbWJvb3xlbnwxfHx8fDE3Nzk1ODY2MjR8MA&ixlib=rb-4.1.0&q=80&w=1080", description: "The indispensable soulmate to Guilin noodles. Locally grown bamboo shoots are fermented until they develop a distinct, punchy sourness. Mixed into the noodles, they cut perfectly through the rich meat fat and gravy." }
         ]
       }
-    ]
+    ],
+    guide: {
+      seoTitle: "Guilin Travel Guide: 4 Day Guilin, Yangshuo and Li River Itinerary",
+      seoDescription: "Plan a first Guilin and Yangshuo trip with a practical 4 day itinerary, Li River cruise timing, Yulong River, Xingping, Longji Rice Terraces, transport tips, where to stay, and common mistakes.",
+      seoKeywords: [
+        "Guilin travel guide",
+        "Guilin itinerary 4 days",
+        "Yangshuo travel guide",
+        "Li River cruise",
+        "Longji Rice Terraces",
+        "Guilin first time visitor"
+      ],
+      itineraryTitle: "4 Day Guilin and Yangshuo Itinerary",
+      intro: "For most first-time visitors, Guilin works best as a 4 day nature route: arrive and see Guilin city sights, take the Li River cruise to Yangshuo, spend a countryside day around the Yulong River and West Street, then use the final day for Xingping, Longji Rice Terraces, or a slower transfer buffer.",
+      itinerary: [
+        {
+          day: "Day 1",
+          title: "Guilin City, Reed Flute Cave and Two Rivers and Four Lakes",
+          summary: "Use arrival day for Guilin's easier city sights. Choose Reed Flute Cave or Elephant Trunk Hill, then walk or cruise the Two Rivers and Four Lakes area in the evening.",
+          stops: ["Guilin city", "Reed Flute Cave or Elephant Trunk Hill", "Two Rivers and Four Lakes", "Guilin rice noodles"],
+          tip: "Keep arrival day light because the best scenery comes after you move toward Yangshuo."
+        },
+        {
+          day: "Day 2",
+          title: "Li River Cruise to Yangshuo and West Street",
+          summary: "Take the Li River route from Guilin toward Yangshuo for the classic karst views. Settle into Yangshuo and use West Street for an easy evening.",
+          stops: ["Li River cruise", "Karst viewpoints", "Yangshuo", "West Street"],
+          tip: "Book the cruise or river transfer before the day starts; this is the backbone of the whole itinerary."
+        },
+        {
+          day: "Day 3",
+          title: "Yulong River Countryside, Cycling and Local Villages",
+          summary: "Slow down around Yangshuo with Yulong River scenery, countryside cycling, bamboo raft options, and village roads framed by limestone peaks.",
+          stops: ["Yulong River", "Countryside cycling", "Bamboo raft option", "Yangshuo dinner"],
+          tip: "Weather matters. If rain is heavy, switch to shorter walks, cafes, or a driver-assisted countryside loop."
+        },
+        {
+          day: "Day 4",
+          title: "Xingping, Longji Rice Terraces or Departure Buffer",
+          summary: "Use the last day for Xingping's Li River views, a longer Longji Rice Terraces trip, or a relaxed transfer back to Guilin airport or rail station.",
+          stops: ["Xingping or Longji Rice Terraces", "Return to Guilin", "Airport or rail transfer"],
+          tip: "Longji is a bigger transfer commitment than Xingping. Choose it only if you have enough time and energy."
+        }
+      ],
+      bookingChecklist: [
+        {
+          title: "Confirm Li River cruise ticket details first",
+          detail: "The official Li River tourism site provides ticket information for river routes. Confirm the current route, departure point, ticket type, and timing before building the Yangshuo transfer day.",
+          sourceLabel: "Li River: Ticket information",
+          sourceUrl: "https://en.liriver.com.cn/mobile/article/lyfw.pwxx"
+        },
+        {
+          title: "Check Li River transport instructions",
+          detail: "Li River transport details matter because cruise boarding and return logistics are not the same as a normal city attraction.",
+          sourceLabel: "Li River: Transportation",
+          sourceUrl: "https://en.liriver.com.cn/mobile/article/lyfw.jtcx"
+        },
+        {
+          title: "Use the official Li River overview to choose the river day",
+          detail: "The official Li River introduction is useful for understanding the scenic corridor before deciding whether to prioritize the full cruise, Xingping, or Yangshuo countryside.",
+          sourceLabel: "Li River: Introduction",
+          sourceUrl: "https://en.liriver.com.cn/page/article/zjlj.ljjj"
+        },
+        {
+          title: "Treat Longji as a separate transport plan",
+          detail: "Longji Rice Terraces are a mountain transfer, not a quick Guilin city stop. Confirm season, road time, and whether a day trip or overnight works better.",
+          sourceLabel: "Guangxi Government: Longji reference",
+          sourceUrl: "https://en.gxzf.gov.cn/2023-08/01/c_907121.htm"
+        }
+      ],
+      gettingAround: [
+        {
+          title: "Use Guilin for arrival and Yangshuo for scenery",
+          detail: "Guilin is practical for airport, rail, and first-night logistics. Yangshuo is usually the better base for countryside scenery."
+        },
+        {
+          title: "Book river movement as a fixed day",
+          detail: "The Li River cruise or transfer is the key movement between Guilin and Yangshuo. Plan it as the main event of Day 2."
+        },
+        {
+          title: "Use drivers or tours for Longji",
+          detail: "Longji involves mountain roads and timing risk. A reliable transfer or tour is often easier than improvising on the day."
+        }
+      ],
+      stayAreas: [
+        {
+          name: "Guilin City Center",
+          bestFor: "Arrival",
+          detail: "Best for the first night, airport or rail access, city sights, and an easy start before the Li River."
+        },
+        {
+          name: "Yangshuo West Street Area",
+          bestFor: "Convenience",
+          detail: "Good for restaurants, nightlife, and easy walking, though it can be busier and noisier."
+        },
+        {
+          name: "Yulong River Countryside",
+          bestFor: "Scenery",
+          detail: "Best for quieter views, cycling, rafting, and a slower nature stay outside the busiest town streets."
+        },
+        {
+          name: "Longji Rice Terraces",
+          bestFor: "Extension",
+          detail: "Worth an overnight if rice terraces are a top priority and you want sunrise, sunset, or village walking."
+        }
+      ],
+      mistakes: [
+        {
+          title: "Staying only in Guilin city",
+          detail: "Guilin city is useful, but many travelers come for Yangshuo countryside and Li River scenery. Move bases if you have enough nights."
+        },
+        {
+          title: "Not booking the river day clearly",
+          detail: "Li River routes, docks, ticket types, and return logistics need advance checking. Do not treat it like a casual walk-up attraction."
+        },
+        {
+          title: "Packing the route too tightly",
+          detail: "Weather, rural transfers, and scenic stops make Guilin slower than a metro city. Leave buffer time."
+        },
+        {
+          title: "Adding Longji without enough time",
+          detail: "Longji is beautiful but remote. Add it as a deliberate day trip or overnight, not a rushed side stop."
+        }
+      ],
+      officialSources: [
+        {
+          label: "Li River ticket information",
+          url: "https://en.liriver.com.cn/mobile/article/lyfw.pwxx",
+          note: "Use this before locking the cruise or river-transfer day."
+        },
+        {
+          label: "Li River transportation information",
+          url: "https://en.liriver.com.cn/mobile/article/lyfw.jtcx",
+          note: "Helpful for boarding, transfer, and route logistics."
+        },
+        {
+          label: "Li River official introduction",
+          url: "https://en.liriver.com.cn/page/article/zjlj.ljjj",
+          note: "Useful for understanding the scenic corridor and route priorities."
+        },
+        {
+          label: "Guangxi Government Longji reference",
+          url: "https://en.gxzf.gov.cn/2023-08/01/c_907121.htm",
+          note: "Helpful when deciding whether to add Longji Rice Terraces."
+        }
+      ],
+      faqs: [
+        {
+          question: "How many days do I need in Guilin and Yangshuo?",
+          answer: "Plan 4 days for a comfortable first visit: one day in Guilin, one Li River transfer day, one Yangshuo countryside day, and one day for Xingping, Longji, or departure buffer."
+        },
+        {
+          question: "Should I stay in Guilin or Yangshuo?",
+          answer: "Stay in Guilin for arrival logistics and city sights, then move to Yangshuo for the best countryside and karst scenery."
+        },
+        {
+          question: "Is the Li River cruise worth it?",
+          answer: "Yes for most first-time visitors. It is the classic way to connect Guilin and Yangshuo while seeing the karst river landscape."
+        },
+        {
+          question: "Should I add Longji Rice Terraces?",
+          answer: "Add Longji if you have a full spare day or can stay overnight. Skip it on a tight route because the transfer is significant."
+        },
+        {
+          question: "When is the best time to visit Guilin?",
+          answer: "April to October is the broad scenic season, with lush landscapes and river views. Check rain and flood conditions before river activities."
+        },
+        {
+          question: "What food should I try in Guilin?",
+          answer: "Start with Guilin rice noodles, especially a morning bowl with crispy pork, peanuts, pickled vegetables, and local gravy."
+        }
+      ]
+    }
   },
   {
     id: "xian",
