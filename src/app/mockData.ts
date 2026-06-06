@@ -1,9 +1,9 @@
-import guangzhouMap from "../imports/ChatGPT_Image_2026_5_20__21_21_11.png";
-import beijingTravelGuideMap from "../imports/beijin-jingdiantu.png";
-import beijingPekingDuck from "../imports/beijing-peking-duck.png";
-import shanghaiTravelGuideMap from "../imports/shanghai-travel-guide-map.png";
-import chengduTravelGuideMap from "../imports/chengdu-travel-guide-map.png";
-import guilinTravelGuideMap from "../imports/guilin-travel-guide-map.png";
+import guangzhouMap from "../imports/ChatGPT_Image_2026_5_20__21_21_11.webp";
+import beijingTravelGuideMap from "../imports/beijin-jingdiantu.webp";
+import beijingPekingDuck from "../imports/beijing-peking-duck.webp";
+import shanghaiTravelGuideMap from "../imports/shanghai-travel-guide-map.webp";
+import chengduTravelGuideMap from "../imports/chengdu-travel-guide-map.webp";
+import guilinTravelGuideMap from "../imports/guilin-travel-guide-map.webp";
 
 export const CUISINES = [
   {

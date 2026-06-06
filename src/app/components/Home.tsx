@@ -1,9 +1,29 @@
 import { Link } from "react-router";
-import { Search, MapPin, Star, Heart, Eye } from "lucide-react";
-import { DESTINATIONS, GUIDES } from "../mockData";
+import {
+  BadgeCheck,
+  BookOpen,
+  CalendarDays,
+  ChevronRight,
+  CircleDollarSign,
+  Clock,
+  Compass,
+  Landmark,
+  MapPin,
+  Plane,
+  Route,
+  ShieldCheck,
+  Star,
+  Train,
+  Utensils,
+  WalletCards,
+  Wifi,
+} from "lucide-react";
+import { DESTINATIONS, GUIDES, ITINERARIES } from "../mockData";
+import { AdUnit } from "./AdUnit";
 import {
   FAQSection,
   Seo,
+  absoluteUrl,
   buildFaqJsonLd,
   buildOrganizationJsonLd,
   buildWebPageJsonLd,
@@ -33,173 +53,524 @@ const homeFaqs = [
   },
 ];
 
+const featuredDestinationIds = ["beijing", "shanghai", "chengdu", "guilin"];
+
+const featuredDestinations = featuredDestinationIds.flatMap((id) =>
+  DESTINATIONS.filter((destination) => destination.id === id).slice(0, 1),
+);
+
+const destinationAngles: Record<
+  string,
+  {
+    hook: string;
+    planningAngle: string;
+    planningDepth: string;
+  }
+> = {
+  beijing: {
+    hook: "Imperial icons, Great Wall day trips, hutong food walks",
+    planningAngle: "Best for first-time history routes",
+    planningDepth: "4 to 5 day plan",
+  },
+  shanghai: {
+    hook: "Bund skyline, French Concession walks, museum and river nights",
+    planningAngle: "Best for arrivals and city breaks",
+    planningDepth: "3 to 4 day plan",
+  },
+  chengdu: {
+    hook: "Pandas, teahouses, hot pot, Leshan or Dujiangyan day trips",
+    planningAngle: "Best for food and slow travel",
+    planningDepth: "3 to 4 day plan",
+  },
+  guilin: {
+    hook: "Li River cruise, Yangshuo cycling, Longji rice terraces",
+    planningAngle: "Best for scenery and photography",
+    planningDepth: "4 day plan",
+  },
+};
+
+const planningTopics = [
+  {
+    title: "Payments and apps",
+    summary: "Mobile payment setup, translation, maps, ride hailing, and train booking basics.",
+    href: "/guides",
+    icon: WalletCards,
+  },
+  {
+    title: "Train-first routing",
+    summary: "Build city pairs around high-speed rail when it saves airport transfer time.",
+    href: "/itineraries",
+    icon: Train,
+  },
+  {
+    title: "Food-led city picks",
+    summary: "Use cuisine depth to choose where extra nights are worth the schedule cost.",
+    href: "/cuisines",
+    icon: Utensils,
+  },
+  {
+    title: "Ticket friction",
+    summary: "Spot attractions that require passport booking, time slots, or official channels.",
+    href: "/destinations",
+    icon: ShieldCheck,
+  },
+  {
+    title: "Connectivity stack",
+    summary: "Plan eSIM, hotel Wi-Fi, backup translation, and offline screenshots before landing.",
+    href: "/guides",
+    icon: Wifi,
+  },
+  {
+    title: "Realistic budgets",
+    summary: "Compare city costs, attraction fees, meal styles, and transport tradeoffs.",
+    href: "/itineraries",
+    icon: CircleDollarSign,
+  },
+];
+
+const seasonalGuides = [
+  {
+    season: "Spring",
+    title: "Gardens, tea country, and lighter city walking",
+    cities: "Hangzhou, Shanghai, Beijing",
+  },
+  {
+    season: "Summer",
+    title: "River landscapes, mountain air, and late-night food streets",
+    cities: "Guilin, Zhangjiajie, Chengdu",
+  },
+  {
+    season: "Autumn",
+    title: "Clear skies, Great Wall views, and golden city parks",
+    cities: "Beijing, Xi'an, Shanghai",
+  },
+  {
+    season: "Winter",
+    title: "Hot pot, museums, northern history, and lower crowd pressure",
+    cities: "Chengdu, Beijing, Guangzhou",
+  },
+];
+
+const editorialStandards = [
+  "City guides separate official ticket sources from opinionated route advice.",
+  "Itineraries are written for international visitors using passports, mobile payments, and public transport.",
+  "Food coverage links regional cuisines to practical neighborhoods and realistic trip pacing.",
+];
+
 export function Home() {
   const pageDescription =
-    "Plan a China trip with practical destination guides, day-by-day itineraries, local cuisine guides, travel app setup, and first-time visitor tips.";
+    "Plan a China trip with research-backed itineraries, destination playbooks, food routes, transport setup, ticket advice, and first-time visitor checklists.";
+
+  const primaryItinerary = ITINERARIES[0];
+  const routeCards = ITINERARIES.slice(0, 3);
+  const guideCards = GUIDES.slice(0, 3);
+
   const jsonLd = [
     buildOrganizationJsonLd(),
     buildWebSiteJsonLd(),
     buildWebPageJsonLd({
       path: "/",
-      name: "Roam China Travel Guide",
+      name: "China Travel Planner for International Visitors",
       description: pageDescription,
+      image: primaryItinerary?.image,
+      dateModified: "2026-06-05",
     }),
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      name: "High-value China destination playbooks",
+      itemListElement: featuredDestinations.map((destination, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        item: {
+          "@type": "TouristDestination",
+          name: destination.name,
+          description: destination.description,
+          url: absoluteUrl(`/destination/${destination.id}`),
+          image: destination.image,
+        },
+      })),
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      name: "China itinerary planning routes",
+      itemListElement: routeCards.map((itinerary, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        item: {
+          "@type": "Trip",
+          name: itinerary.title,
+          description: itinerary.description,
+          url: absoluteUrl(`/itinerary/${itinerary.id}`),
+        },
+      })),
+    },
     buildFaqJsonLd(homeFaqs),
   ];
 
   return (
-    <div className="w-full bg-background min-h-screen">
+    <div className="w-full min-h-screen overflow-x-hidden bg-[#f7f7f2] text-slate-950">
       <Seo
-        title="China Travel Guide for International Tourists"
+        title="China Travel Planner for First-Time Visitors"
         description={pageDescription}
         path="/"
-        keywords={["China travel guide", "China itinerary", "Chinese cuisine", "travel China"]}
+        keywords={[
+          "China travel planner",
+          "China itinerary",
+          "China travel guide",
+          "first time China trip",
+          "China destination guide",
+        ]}
+        image={primaryItinerary?.image}
         jsonLd={jsonLd}
       />
 
-      {/* Hero Section */}
-      <section className="relative h-[500px] flex items-center justify-center bg-primary">
-        <div className="absolute inset-0 w-full h-full overflow-hidden">
-          <img 
-            src="https://images.unsplash.com/photo-1513781050488-6dd358209a1b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0cmFkaXRpb25hbCUyMGNoaW5lc2UlMjBhcmNoaXRlY3R1cmV8ZW58MXx8fHwxNzc5MjAwOTA0fDA&ixlib=rb-4.1.0&q=80&w=1080" 
-            alt="Traditional Chinese architecture for a China travel guide" 
-            className="w-full h-full object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-primary/60"></div>
-        </div>
-        
-        <div className="relative z-10 w-full max-w-4xl px-4 text-center">
-          <h1 className="text-white mb-6 drop-shadow-md">
-            Discover the Real China
-          </h1>
-          <p className="text-lg md:text-xl text-white/90 mb-8 drop-shadow-sm">
-            Your essential guide to navigating, exploring, and experiencing the Middle Kingdom.
-          </p>
-          
-          <div className="bg-card p-2 rounded-xl shadow-xl flex items-center max-w-2xl mx-auto border border-border">
-            <div className="pl-4 pr-2 text-muted-foreground">
-              <Search className="w-6 h-6" />
+      <section className="relative min-h-[620px] overflow-hidden bg-slate-950 text-white">
+        <img
+          src={primaryItinerary?.image}
+          alt="Great Wall route inspiration for a first China trip"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-slate-950/65" />
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-slate-950 to-transparent" />
+
+        <div className="relative z-10 mx-auto flex min-h-[620px] max-w-7xl flex-col justify-end px-4 pb-14 pt-28 sm:px-6 lg:px-8">
+          <div className="max-w-4xl">
+            <div className="mb-5 inline-flex items-center gap-2 rounded border border-white/25 bg-white/10 px-3 py-2 text-sm text-white backdrop-blur">
+              <BadgeCheck className="h-4 w-4 text-emerald-300" />
+              Updated for 2026 China trip planning
             </div>
-            <input 
-              type="text" 
-              placeholder="Where to? (e.g. Beijing, Shanghai)" 
-              className="flex-1 outline-none bg-transparent text-card-foreground placeholder:text-muted-foreground py-3"
-            />
-            <button className="bg-destructive hover:opacity-90 text-destructive-foreground px-8 py-3 rounded-lg transition-colors">
-              Search
-            </button>
+            <h1 className="max-w-3xl break-words text-3xl font-semibold leading-[1.08] text-white sm:text-5xl md:text-7xl">
+              China travel planner for first-time visitors.
+            </h1>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-100 md:text-xl">
+              Built for international travelers who need practical routes, official ticket
+              checkpoints, payment setup, food priorities, and realistic day-by-day pacing before
+              they land.
+            </p>
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+              <Link
+                to="/itinerary/classic-14-days"
+                className="inline-flex w-full min-w-0 items-center justify-center gap-2 rounded-lg bg-[#f4c542] px-4 py-4 text-center font-semibold text-slate-950 transition hover:bg-[#ffd765] sm:w-auto sm:px-6"
+              >
+                <span className="min-w-0">Start with the 14-day classic route</span>
+                <ChevronRight className="h-5 w-5 shrink-0" />
+              </Link>
+              <Link
+                to="/destinations"
+                className="inline-flex w-full min-w-0 items-center justify-center gap-2 rounded-lg border border-white/35 px-4 py-4 text-center font-semibold text-white transition hover:bg-white hover:text-slate-950 sm:w-auto sm:px-6"
+              >
+                <span className="min-w-0">Compare destinations</span>
+                <Compass className="h-5 w-5 shrink-0" />
+              </Link>
+            </div>
           </div>
-        </div>
-      </section>
 
-      {/* Destinations Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="flex justify-between items-end mb-8">
-          <div>
-            <h2 className="mb-2 text-foreground">Top Destinations</h2>
-            <p className="text-muted-foreground">Most popular cities and regions among international travelers</p>
-          </div>
-          <Link to="/destinations" className="text-primary font-medium hover:underline hidden sm:block">
-            View All
-          </Link>
-        </div>
-        
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {DESTINATIONS.slice(0, 4).map((dest) => (
-            <Link key={dest.id} to={`/destination/${dest.id}`} className="group cursor-pointer block">
-              <div className="relative rounded-xl overflow-hidden aspect-[4/5] mb-4 border border-border">
-                <img 
-                  src={dest.image} 
-                  alt={dest.name} 
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                <div className="absolute bottom-4 left-4 text-white">
-                  <div className="flex items-center gap-1 font-medium text-lg mb-1 text-white">
-                    <MapPin className="w-4 h-4" />
-                    {dest.name}
-                  </div>
-                  <div className="flex items-center gap-1 text-sm text-white/80">
-                    <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                    <span>{dest.rating}</span>
-                    <span className="ml-1">({dest.reviews} reviews)</span>
-                  </div>
-                </div>
+          <div className="mt-12 grid max-w-5xl grid-cols-1 gap-3 md:grid-cols-3">
+            {[
+              { label: "Best first route", value: "Beijing -> Xi'an -> Chengdu -> Shanghai" },
+              { label: "Planning depth", value: "Tickets, transit, food, stay areas" },
+              { label: "Core audience", value: "First-time international visitors" },
+            ].map((item) => (
+              <div key={item.label} className="rounded-lg border border-white/15 bg-white/10 p-4 backdrop-blur">
+                <p className="text-sm text-slate-300">{item.label}</p>
+                <p className="mt-2 break-words font-semibold text-white">{item.value}</p>
               </div>
-            </Link>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Itinerary CTA */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="bg-primary rounded-xl overflow-hidden shadow-2xl relative border border-border">
-          <div className="absolute inset-0 z-0">
-            <img 
-              src="https://images.unsplash.com/photo-1564632570063-9ce5e7bd724e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGluYSUyMGJ1bGxldCUyMHRyYWlufGVufDF8fHx8MTc3OTIwMjU3Mnww&ixlib=rb-4.1.0&q=80&w=1080" 
-              alt="China high-speed train itinerary planning" 
-              className="w-full h-full object-cover opacity-30"
-            />
-          </div>
-          <div className="relative z-10 p-10 md:p-16 flex flex-col md:flex-row items-center justify-between gap-8">
-            <div className="text-primary-foreground max-w-2xl text-center md:text-left">
-              <h2 className="mb-4 text-primary-foreground">Don't want to plan? Follow our routes.</h2>
-              <p className="text-lg opacity-80">
-                Discover our expertly crafted itineraries. From the classic Golden Triangle to deep dives into the ancient Silk Road, we have a route for every travel style.
+      <section className="border-y border-slate-200 bg-white py-5">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <AdUnit slotKey="homeLeaderboard" minHeight={96} />
+        </div>
+      </section>
+
+      <section className="bg-white py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 gap-10 lg:grid-cols-[0.85fr_1.15fr]">
+            <div>
+              <p className="mb-3 text-sm font-semibold uppercase text-[#0f766e]">
+                Trip decision desk
+              </p>
+              <h2 className="text-3xl font-semibold leading-tight text-slate-950 md:text-5xl">
+                Choose a route by outcome, not by postcard.
+              </h2>
+              <p className="mt-5 max-w-xl text-lg leading-8 text-slate-600">
+                The highest-value travel searches are practical: how many days, which city order,
+                what to book, where to stay, and what can go wrong. Roam China makes those answers
+                easy to scan and sends readers deeper into destination and itinerary pages.
               </p>
             </div>
-            <Link to="/itineraries" className="bg-destructive hover:opacity-90 text-destructive-foreground px-8 py-4 rounded-lg font-medium transition-colors flex items-center justify-center gap-2 whitespace-nowrap shrink-0">
-              Explore Itineraries
-            </Link>
+
+            <div className="grid grid-cols-1 gap-4">
+              {routeCards.map((itinerary, index) => (
+                <Link
+                  key={itinerary.id}
+                  to={`/itinerary/${itinerary.id}`}
+                  className="group grid grid-cols-1 overflow-hidden rounded-lg border border-slate-200 bg-[#f7f7f2] transition hover:border-[#0f766e] md:grid-cols-[180px_1fr]"
+                >
+                  <div className="relative min-h-[180px] overflow-hidden">
+                    <img
+                      src={itinerary.image}
+                      alt={itinerary.title}
+                      className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                    />
+                    <span className="absolute left-3 top-3 rounded bg-slate-950 px-3 py-1 text-sm font-semibold text-white">
+                      0{index + 1}
+                    </span>
+                  </div>
+                  <div className="p-5">
+                    <div className="mb-3 flex flex-wrap items-center gap-3 text-sm text-slate-600">
+                      <span className="inline-flex items-center gap-1">
+                        <Clock className="h-4 w-4 text-[#b91c1c]" />
+                        {itinerary.duration}
+                      </span>
+                      <span className="inline-flex items-center gap-1">
+                        <Route className="h-4 w-4 text-[#0f766e]" />
+                        {itinerary.theme}
+                      </span>
+                      <span className="inline-flex items-center gap-1">
+                        <Star className="h-4 w-4 fill-[#f4c542] text-[#f4c542]" />
+                        {itinerary.rating}
+                      </span>
+                    </div>
+                    <h3 className="text-2xl font-semibold text-slate-950 group-hover:text-[#0f766e]">
+                      {itinerary.title}
+                    </h3>
+                    <p className="mt-3 leading-7 text-slate-600">{itinerary.description}</p>
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {itinerary.destinations.map((destination) => (
+                        <span
+                          key={destination}
+                          className="rounded border border-slate-200 bg-white px-2.5 py-1 text-sm text-slate-700"
+                        >
+                          {destination}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Guides Section */}
-      <section className="bg-muted py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-end mb-8">
-            <div>
-              <h2 className="mb-2 text-foreground">Essential Guides</h2>
-              <p className="text-muted-foreground">Practical tips and itineraries from Chinese locals and travelers</p>
+      <section className="bg-[#132d2f] py-16 text-white">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 sm:px-6 lg:grid-cols-[1fr_320px] lg:px-8">
+          <div>
+            <div className="mb-8 flex items-end justify-between gap-4">
+              <div>
+                <p className="mb-3 text-sm font-semibold uppercase text-[#f4c542]">
+                  Destination playbooks
+                </p>
+                <h2 className="text-3xl font-semibold leading-tight md:text-5xl">
+                  Four entry cities with complete planning depth.
+                </h2>
+              </div>
+              <Link
+                to="/destinations"
+                className="hidden rounded-lg border border-white/30 px-5 py-3 font-semibold text-white transition hover:bg-white hover:text-slate-950 sm:inline-flex"
+              >
+                View all cities
+              </Link>
             </div>
-            <Link to="/guides" className="text-primary font-medium hover:underline hidden sm:block">
-              More Guides
+
+            <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+              {featuredDestinations.map((destination) => {
+                const angle = destinationAngles[destination.id];
+
+                return (
+                  <Link
+                    key={destination.id}
+                    to={`/destination/${destination.id}`}
+                    className="group overflow-hidden rounded-lg border border-white/15 bg-white/8 transition hover:border-[#f4c542]"
+                  >
+                    <div className="relative aspect-[16/9] overflow-hidden">
+                      <img
+                        src={destination.image}
+                        alt={`${destination.name} travel guide`}
+                        className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/65 to-transparent" />
+                      <div className="absolute bottom-3 left-3 flex items-center gap-2 text-white">
+                        <MapPin className="h-4 w-4" />
+                        <span className="font-semibold">{destination.name}</span>
+                      </div>
+                    </div>
+                    <div className="p-5">
+                      <p className="text-sm font-semibold text-[#f4c542]">
+                        {angle?.planningAngle}
+                      </p>
+                      <h3 className="mt-2 text-xl font-semibold text-white">{angle?.hook}</h3>
+                      <div className="mt-4 flex flex-wrap gap-2">
+                        <span className="rounded border border-white/15 px-2.5 py-1 text-sm text-slate-200">
+                          {angle?.planningDepth}
+                        </span>
+                        <span className="rounded border border-white/15 px-2.5 py-1 text-sm text-slate-200">
+                          {destination.practicalInfo.bestTime}
+                        </span>
+                      </div>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+
+          <div className="space-y-5">
+            <AdUnit
+              slotKey="homeSidebar"
+              minHeight={360}
+              className="border-white/25 bg-white/10 text-slate-200"
+            />
+            <div className="rounded-lg border border-white/15 bg-white/8 p-5">
+              <h3 className="text-xl font-semibold text-white">Editorial trust signals</h3>
+              <ul className="mt-4 space-y-3">
+                {editorialStandards.map((standard) => (
+                  <li key={standard} className="flex gap-3 text-sm leading-6 text-slate-200">
+                    <BadgeCheck className="mt-0.5 h-4 w-4 shrink-0 text-[#f4c542]" />
+                    <span>{standard}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#f7f7f2] py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 gap-10 lg:grid-cols-[0.75fr_1.25fr]">
+            <div>
+              <p className="mb-3 text-sm font-semibold uppercase text-[#b91c1c]">
+                Practical search intent
+              </p>
+              <h2 className="text-3xl font-semibold leading-tight text-slate-950 md:text-5xl">
+                Cover the questions travelers search before spending.
+              </h2>
+              <p className="mt-5 text-lg leading-8 text-slate-600">
+                A travel site earns better attention when it answers the buying-stage questions:
+                where to stay, what to book, how to move, what to eat, and what setup prevents trip
+                friction.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              {planningTopics.map((topic) => {
+                const Icon = topic.icon;
+
+                return (
+                  <Link
+                    key={topic.title}
+                    to={topic.href}
+                    className="group rounded-lg border border-slate-200 bg-white p-5 transition hover:border-[#b91c1c]"
+                  >
+                    <div className="mb-5 inline-flex h-11 w-11 items-center justify-center rounded-lg bg-slate-950 text-white">
+                      <Icon className="h-5 w-5" />
+                    </div>
+                    <h3 className="text-xl font-semibold text-slate-950 group-hover:text-[#b91c1c]">
+                      {topic.title}
+                    </h3>
+                    <p className="mt-3 leading-7 text-slate-600">{topic.summary}</p>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-y border-slate-200 bg-white py-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <AdUnit slotKey="homeInArticle" minHeight={140} />
+        </div>
+      </section>
+
+      <section className="bg-white py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-10 grid grid-cols-1 gap-6 md:grid-cols-[0.8fr_1.2fr]">
+            <div>
+              <p className="mb-3 text-sm font-semibold uppercase text-[#0f766e]">
+                Seasonal planning
+              </p>
+              <h2 className="text-3xl font-semibold leading-tight text-slate-950 md:text-5xl">
+                Match each month to the right region.
+              </h2>
+            </div>
+            <p className="text-lg leading-8 text-slate-600">
+              Weather, crowds, and food scenes change the value of a destination. Seasonal routing
+              keeps readers engaged beyond a single city page and creates natural internal links to
+              routes, cuisines, and practical guides.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
+            {seasonalGuides.map((guide) => (
+              <article key={guide.season} className="rounded-lg border border-slate-200 bg-[#f7f7f2] p-5">
+                <div className="mb-5 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-white text-[#0f766e]">
+                  <CalendarDays className="h-5 w-5" />
+                </div>
+                <h3 className="text-xl font-semibold text-slate-950">{guide.season}</h3>
+                <p className="mt-3 leading-7 text-slate-600">{guide.title}</p>
+                <p className="mt-4 text-sm font-semibold text-slate-950">{guide.cities}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-slate-950 py-16 text-white">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-10 flex flex-col justify-between gap-4 md:flex-row md:items-end">
+            <div>
+              <p className="mb-3 text-sm font-semibold uppercase text-[#f4c542]">
+                Deep-dive guides
+              </p>
+              <h2 className="text-3xl font-semibold leading-tight md:text-5xl">
+                Guides that keep planning sessions going.
+              </h2>
+            </div>
+            <Link
+              to="/guides"
+              className="inline-flex items-center gap-2 rounded-lg border border-white/30 px-5 py-3 font-semibold text-white transition hover:bg-white hover:text-slate-950"
+            >
+              More guides
+              <BookOpen className="h-4 w-4" />
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {GUIDES.map((guide) => (
-              <Link key={guide.id} to={`/guide/${guide.id}`} className="bg-card rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 block group border border-border">
-                <div className="aspect-[16/9] overflow-hidden">
-                  <img 
-                    src={guide.image} 
-                    alt={guide.title} 
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
+            {guideCards.map((guide) => (
+              <Link
+                key={guide.id}
+                to={`/guide/${guide.id}`}
+                className="group overflow-hidden rounded-lg border border-white/15 bg-white/8 transition hover:border-[#f4c542]"
+              >
+                <div className="aspect-[16/10] overflow-hidden">
+                  <img
+                    src={guide.image}
+                    alt={guide.title}
+                    className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
                   />
                 </div>
-                <div className="p-6">
-                  <div className="flex gap-2 mb-3">
-                    {guide.tags.map(tag => (
-                      <span key={tag} className="text-xs font-medium text-destructive bg-destructive/10 px-2 py-1 rounded-md">
+                <div className="p-5">
+                  <div className="mb-3 flex flex-wrap gap-2">
+                    {guide.tags.map((tag) => (
+                      <span key={tag} className="rounded border border-white/15 px-2.5 py-1 text-sm text-slate-200">
                         {tag}
                       </span>
                     ))}
                   </div>
-                  <h3 className="mb-4 line-clamp-2 group-hover:text-primary transition-colors text-card-foreground">
+                  <h3 className="text-xl font-semibold text-white group-hover:text-[#f4c542]">
                     {guide.title}
                   </h3>
-                  
-                  <div className="flex items-center justify-between border-t border-border pt-4 mt-auto">
-                    <div className="flex items-center gap-3">
-                      <img src={guide.author.avatar} alt={guide.author.name} className="w-8 h-8 rounded-full object-cover" />
-                      <span className="text-sm font-medium text-card-foreground">{guide.author.name}</span>
-                    </div>
-                    <div className="flex items-center gap-3 text-muted-foreground text-sm">
-                      <span className="flex items-center gap-1"><Eye className="w-4 h-4"/> {guide.views}</span>
-                      <span className="flex items-center gap-1"><Heart className="w-4 h-4"/> {guide.likes}</span>
-                    </div>
-                  </div>
+                  <p className="mt-4 text-sm text-slate-300">
+                    By {guide.author.name} - {guide.views} views
+                  </p>
                 </div>
               </Link>
             ))}
@@ -207,8 +578,44 @@ export function Home() {
         </div>
       </section>
 
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <FAQSection title="China Travel Planning Questions" faqs={homeFaqs} />
+      <section className="bg-white py-16">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 sm:px-6 lg:grid-cols-[1fr_320px] lg:px-8">
+          <div>
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+              {[
+                {
+                  icon: Plane,
+                  title: "Arrival ready",
+                  text: "Airport choices, payment setup, transport apps, and first-night neighborhoods.",
+                },
+                {
+                  icon: Landmark,
+                  title: "Official-source aware",
+                  text: "City pages call out attractions and transport systems that require extra booking care.",
+                },
+                {
+                  icon: MapPin,
+                  title: "Route linked",
+                  text: "Every major destination links back to itineraries, food, transport, and FAQ content.",
+                },
+              ].map((item) => {
+                const Icon = item.icon;
+
+                return (
+                  <article key={item.title} className="rounded-lg border border-slate-200 bg-[#f7f7f2] p-5">
+                    <Icon className="mb-5 h-7 w-7 text-[#b91c1c]" />
+                    <h3 className="text-xl font-semibold text-slate-950">{item.title}</h3>
+                    <p className="mt-3 leading-7 text-slate-600">{item.text}</p>
+                  </article>
+                );
+              })}
+            </div>
+
+            <FAQSection title="China Travel Planning Questions" faqs={homeFaqs} />
+          </div>
+
+          <AdUnit slotKey="homeFaqRail" minHeight={320} />
+        </div>
       </section>
     </div>
   );

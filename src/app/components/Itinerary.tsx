@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useParams, Link } from "react-router";
 import { ITINERARIES } from "../mockData";
+import { AdUnit } from "./AdUnit";
 import { Clock, Map, Star, Download, Share2, Footprints, AlertCircle, ArrowRight, ChevronRight, X, ZoomIn } from "lucide-react";
 import {
   FAQSection,
@@ -176,6 +177,8 @@ export function Itinerary() {
             </p>
           </div>
 
+          <AdUnit slotKey="itineraryInArticle" minHeight={140} />
+
           {(itinerary as any).mapImage && (
             <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
               <h2 className="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
@@ -246,6 +249,8 @@ export function Itinerary() {
 
         {/* Sidebar */}
         <div className="space-y-8">
+          <AdUnit slotKey="itinerarySidebar" minHeight={300} />
+
           <div className="bg-slate-900 p-8 rounded-3xl text-white sticky top-24">
             <h3 className="text-2xl font-bold mb-2">Ready to Go?</h3>
             <p className="text-slate-400 text-sm mb-8">Save this itinerary to your profile or use it to start booking your flights and hotels.</p>

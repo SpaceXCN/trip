@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router";
 import { DESTINATIONS } from "../mockData";
+import { AdUnit } from "./AdUnit";
 import { MapPin, Star, Share2, Calendar, Compass, Info, Plane, Facebook, Twitter, Instagram, Link2, ArrowRight, X, ZoomIn, BookOpen, ClipboardCheck, Train, Hotel, AlertTriangle, ShieldCheck } from "lucide-react";
 import {
   FAQSection,
@@ -516,6 +517,8 @@ export function Destination() {
             </div>
           </section>
 
+          <AdUnit slotKey="destinationInArticle" minHeight={140} />
+
           {destinationMap.mapImage && (
             <section>
               <h2 className="mb-6 flex items-center gap-3 text-foreground">
@@ -764,6 +767,8 @@ export function Destination() {
               )}
             </ul>
           </div>
+
+          <AdUnit slotKey="destinationSidebar" minHeight={300} />
 
           {destinationGuide?.officialSources && destinationGuide.officialSources.length > 0 && (
             <div className="bg-card p-6 rounded-xl border border-border shadow-sm">

@@ -26,7 +26,7 @@ export const SITE = {
   legalName: "Roam China Travel Guide",
   url: PRODUCTION_SITE_URL,
   description:
-    "A practical China travel guide for international visitors, covering destinations, itineraries, local food, apps, payments, and cultural tips.",
+    "A practical China travel planner for international visitors, covering research-backed itineraries, destination playbooks, food routes, payments, transport, and ticket checkpoints.",
   defaultImage:
     "https://images.unsplash.com/photo-1513781050488-6dd358209a1b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1200",
   locale: "en_US",

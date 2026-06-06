@@ -54,7 +54,17 @@ const foodIds = [
 
 const guideIds = ["g1", "g2", "g3"];
 
-const staticPaths = ["/", "/destinations", "/itineraries", "/cuisines", "/guides"];
+const staticPaths = [
+  "/",
+  "/destinations",
+  "/itineraries",
+  "/cuisines",
+  "/guides",
+  "/about",
+  "/contact",
+  "/privacy-policy",
+  "/advertising-policy",
+];
 
 const routePaths = [
   ...staticPaths,

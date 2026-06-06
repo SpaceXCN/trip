@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { GUIDES } from "../mockData";
 import { GUIDE_ARTICLES } from "../guideContent";
+import { AdUnit } from "./AdUnit";
 import {
   FAQSection,
   Seo,
@@ -196,6 +197,8 @@ export function Guide() {
                 {article.lead}
               </p>
 
+              <AdUnit slotKey="guideInArticle" minHeight={140} className="my-8" />
+
               {article.sections.map((section, index) => (
                 <section key={section.heading}>
                   <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mt-12 mb-6">
@@ -297,6 +300,8 @@ export function Guide() {
                 Follow Author
               </button>
             </div>
+
+            <AdUnit slotKey="guideSidebar" minHeight={300} />
 
             <div className="bg-white rounded-3xl p-6 shadow-sm border border-slate-200">
               <h3 className="font-bold text-slate-900 mb-4 pb-4 border-b border-slate-100">
