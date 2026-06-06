@@ -10,6 +10,7 @@ import {
   buildFaqJsonLd,
   buildWebPageJsonLd,
 } from "../seo";
+import { AdUnit } from "./AdUnit";
 
 const destinationFaqs = [
   {
@@ -92,6 +93,9 @@ export function DestinationsHub() {
             src="https://images.unsplash.com/photo-1584441407759-073f2344cdef?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGluYSUyMG1hcCUyMHRyYXZlbHxlbnwxfHx8fDE3NzkyMDIzMzd8MA&ixlib=rb-4.1.0&q=80&w=1080" 
             alt="Map for planning China destinations" 
             className="w-full h-full object-cover"
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-primary/50 via-primary/80 to-primary"></div>
         </div>
@@ -105,16 +109,18 @@ export function DestinationsHub() {
             From the bustling megacities on the coast to the mystical mountains in the west, discover the incredible diversity of China.
           </p>
 
-          <div className="bg-background/10 backdrop-blur-md p-2 rounded-xl border border-border/20 flex items-center max-w-3xl mx-auto shadow-2xl focus-within:bg-background/20 transition-colors">
-            <Search className="w-6 h-6 opacity-70 ml-4 mr-2" />
-            <input 
-              type="text" 
-              placeholder="Search destinations by name or keyword..." 
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="flex-1 outline-none bg-transparent text-primary-foreground placeholder:text-primary-foreground/50 py-3"
-            />
-            <button className="bg-destructive hover:opacity-90 text-destructive-foreground px-8 py-3 rounded-lg transition-colors">
+          <div className="bg-background/10 backdrop-blur-md p-2 rounded-xl border border-border/20 flex flex-col gap-2 sm:flex-row sm:items-center max-w-3xl mx-auto shadow-2xl focus-within:bg-background/20 transition-colors">
+            <div className="flex w-full min-w-0 items-center">
+              <Search className="w-6 h-6 opacity-70 ml-3 mr-2 shrink-0" />
+              <input
+                type="text"
+                placeholder="Search destinations by name or keyword..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="min-w-0 flex-1 outline-none bg-transparent text-primary-foreground placeholder:text-primary-foreground/50 py-3"
+              />
+            </div>
+            <button className="w-full sm:w-auto bg-destructive hover:opacity-90 text-destructive-foreground px-8 py-3 rounded-lg transition-colors">
               Search
             </button>
           </div>
@@ -123,6 +129,7 @@ export function DestinationsHub() {
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <AdUnit slotKey="hubLeaderboard" minHeight={96} className="mb-12" />
         
         {/* Filters */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
@@ -162,6 +169,8 @@ export function DestinationsHub() {
                     src={dest.image} 
                     alt={dest.name} 
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
+                    decoding="async"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60"></div>
                   
@@ -235,6 +244,7 @@ export function DestinationsHub() {
           </div>
         )}
 
+        <AdUnit slotKey="hubInArticle" minHeight={140} className="mt-12" />
         <FAQSection title="China Destination Questions" faqs={destinationFaqs} />
       </div>
     </div>

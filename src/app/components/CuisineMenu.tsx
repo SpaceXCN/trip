@@ -11,6 +11,7 @@ import {
   buildWebPageJsonLd,
   truncateDescription,
 } from "../seo";
+import { AdUnit } from "./AdUnit";
 
 export function CuisineMenu() {
   const { cuisineId } = useParams();
@@ -103,6 +104,9 @@ export function CuisineMenu() {
           src={cuisineItem.image} 
           alt={cuisineItem.name} 
           className="w-full h-full object-cover"
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
         <div className="absolute top-8 left-8 z-10">
@@ -129,6 +133,8 @@ export function CuisineMenu() {
           {cuisineItem.description}
         </div>
 
+        <AdUnit slotKey="menuInArticle" minHeight={140} className="mb-10" />
+
         <div className="bg-card border border-border rounded-xl shadow-sm overflow-hidden">
           <div className="p-6 md:p-8 border-b border-border bg-muted/30">
             <h2 className="flex items-center gap-3 text-foreground m-0">
@@ -150,7 +156,13 @@ export function CuisineMenu() {
                 >
                   {item.image && (
                     <div className="w-full md:w-32 h-48 md:h-32 shrink-0 rounded-lg overflow-hidden bg-muted">
-                      <img src={item.image} alt={item.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                      <img
+                        src={item.image}
+                        alt={item.name}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                        decoding="async"
+                      />
                     </div>
                   )}
                   <div className="flex-1">
@@ -204,6 +216,7 @@ export function CuisineMenu() {
                 src={selectedItem.image} 
                 alt={selectedItem.name} 
                 className="w-full h-full object-cover"
+                decoding="async"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
               <div className="absolute bottom-6 left-6 right-6">

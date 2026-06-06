@@ -437,6 +437,9 @@ export function Destination() {
           src={destination.image} 
           alt={destination.name} 
           className="w-full h-full object-cover"
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
         <div className="absolute bottom-0 left-0 w-full p-8 max-w-7xl mx-auto xl:px-8">
@@ -540,6 +543,7 @@ export function Destination() {
                   alt={destinationMap.mapTitle || `${destination.name} travel guide map`}
                   className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-[1.015]"
                   loading="lazy"
+                  decoding="async"
                 />
                 <span className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-black/60 text-white opacity-0 shadow-lg backdrop-blur-sm transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
                   <ZoomIn className="h-5 w-5" aria-hidden="true" />
@@ -673,6 +677,8 @@ export function Destination() {
                         src={sight.image} 
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
                         alt={sight.name} 
+                        loading="lazy"
+                        decoding="async"
                       />
                       <div className="absolute top-3 right-3 bg-background/90 backdrop-blur-sm px-2 py-1 rounded-md flex items-center gap-1 text-xs font-medium text-foreground shadow-sm">
                         <Star className="w-3 h-3 text-yellow-500 fill-yellow-500" /> {sight.rating}
@@ -703,7 +709,13 @@ export function Destination() {
                 {destination.foods.map((food, idx) => (
                   <Link key={idx} to={`/food/${food.id}`} className="group flex flex-col sm:flex-row gap-6 p-4 rounded-xl bg-card border border-border items-center hover:border-primary/50 hover:shadow-md transition-all">
                     <div className="overflow-hidden rounded-lg shrink-0">
-                      <img src={food.image} className="w-full sm:w-40 h-40 sm:h-32 object-cover group-hover:scale-105 transition-transform duration-500" alt={food.name} />
+                      <img
+                        src={food.image}
+                        className="w-full sm:w-40 h-40 sm:h-32 object-cover group-hover:scale-105 transition-transform duration-500"
+                        alt={food.name}
+                        loading="lazy"
+                        decoding="async"
+                      />
                     </div>
                     <div className="flex-1 w-full">
                       <div className="flex items-center justify-between mb-2">
@@ -800,7 +812,13 @@ export function Destination() {
                   First Time in China? The Ultimate 14-Day Itinerary
                 </div>
                 <div className="text-xs opacity-70 flex items-center gap-2">
-                  <img src="https://images.unsplash.com/photo-1506863530036-1efeddceb993?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwb3J0cmFpdCUyMGZlbWFsZSUyMHNtaWxlfGVufDF8fHx8MTc3OTIwMDY4N3ww&ixlib=rb-4.1.0&q=80&w=1080" className="w-5 h-5 rounded-full object-cover" alt="Sarah Traveler author avatar" />
+                  <img
+                    src="https://images.unsplash.com/photo-1506863530036-1efeddceb993?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwb3J0cmFpdCUyMGZlbWFsZSUyMHNtaWxlfGVufDF8fHx8MTc3OTIwMDY4N3ww&ixlib=rb-4.1.0&q=80&w=1080"
+                    className="w-5 h-5 rounded-full object-cover"
+                    alt="Sarah Traveler author avatar"
+                    loading="lazy"
+                    decoding="async"
+                  />
                   By Sarah Traveler
                 </div>
               </Link>
@@ -833,6 +851,7 @@ export function Destination() {
               src={destinationMap.mapImage}
               alt={destinationMap.mapTitle || `${destination.name} travel guide map`}
               className="max-h-[92vh] max-w-[96vw] bg-black object-contain"
+              decoding="async"
             />
           </div>
         </div>

@@ -108,6 +108,9 @@ export function Guide() {
           src={guide.image}
           alt={guide.title}
           className="w-full h-full object-cover opacity-60"
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent"></div>
 
@@ -142,6 +145,8 @@ export function Guide() {
                 src={guide.author.avatar}
                 alt={guide.author.name}
                 className="w-10 h-10 rounded-full object-cover border-2 border-white/20"
+                loading="eager"
+                decoding="async"
               />
               <span>By {guide.author.name}</span>
             </div>
@@ -211,6 +216,7 @@ export function Guide() {
                       alt={section.image.alt}
                       className="w-full rounded-2xl my-8 object-cover"
                       loading="lazy"
+                      decoding="async"
                     />
                   )}
 
@@ -290,6 +296,8 @@ export function Guide() {
                 src={guide.author.avatar}
                 alt={guide.author.name}
                 className="w-20 h-20 rounded-full mx-auto object-cover mb-4 shadow-sm"
+                loading="lazy"
+                decoding="async"
               />
               <h3 className="font-bold text-slate-900 text-lg">{guide.author.name}</h3>
               <p className="text-sm text-slate-500 mt-2 mb-6">
@@ -316,6 +324,8 @@ export function Guide() {
                         src={related.image}
                         alt={related.title}
                         className="w-16 h-16 rounded-lg object-cover shrink-0"
+                        loading="lazy"
+                        decoding="async"
                       />
                       <div>
                         <h4 className="text-sm font-bold text-slate-900 line-clamp-2 group-hover:text-red-600 transition-colors">

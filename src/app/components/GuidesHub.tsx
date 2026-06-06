@@ -10,6 +10,7 @@ import {
   buildFaqJsonLd,
   buildWebPageJsonLd,
 } from "../seo";
+import { AdUnit } from "./AdUnit";
 
 const guideFaqs = [
   {
@@ -103,16 +104,18 @@ export function GuidesHub() {
             Everything you need to know before you go. From navigating the Great Firewall to mastering chopsticks, read advice from travelers who have been there.
           </p>
 
-          <div className="bg-card p-2 rounded-xl flex items-center shadow-lg max-w-2xl mx-auto border border-border">
-            <Search className="w-6 h-6 text-muted-foreground ml-4 mr-2 shrink-0" />
-            <input 
-              type="text" 
-              placeholder="Search articles, e.g., 'Alipay', 'High-speed train'..." 
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="flex-1 outline-none text-card-foreground py-3 bg-transparent placeholder:text-muted-foreground"
-            />
-            <button className="bg-destructive hover:opacity-90 text-destructive-foreground px-8 py-3 rounded-lg transition-colors">
+          <div className="bg-card p-2 rounded-xl flex flex-col gap-2 sm:flex-row sm:items-center shadow-lg max-w-2xl mx-auto border border-border">
+            <div className="flex w-full min-w-0 items-center">
+              <Search className="w-6 h-6 text-muted-foreground ml-3 mr-2 shrink-0" />
+              <input
+                type="text"
+                placeholder="Search articles, e.g., 'Alipay', 'High-speed train'..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="min-w-0 flex-1 outline-none text-card-foreground py-3 bg-transparent placeholder:text-muted-foreground"
+              />
+            </div>
+            <button className="w-full sm:w-auto bg-destructive hover:opacity-90 text-destructive-foreground px-8 py-3 rounded-lg transition-colors">
               Search
             </button>
           </div>
@@ -120,6 +123,8 @@ export function GuidesHub() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <AdUnit slotKey="hubLeaderboard" minHeight={96} className="mb-10" />
+
         {/* Filters */}
         <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-8 scrollbar-hide">
           <div className="flex items-center gap-2 text-muted-foreground mr-2 shrink-0">
@@ -150,6 +155,8 @@ export function GuidesHub() {
                     src={guide.image} 
                     alt={guide.title} 
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
+                    decoding="async"
                   />
                   <div className="absolute top-4 left-4 flex gap-2 flex-wrap">
                     {guide.tags.slice(0, 2).map(tag => (
@@ -167,7 +174,13 @@ export function GuidesHub() {
                   
                   <div className="mt-auto pt-6 border-t border-border flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                      <img src={guide.author.avatar} alt={guide.author.name} className="w-10 h-10 rounded-full object-cover border-2 border-border shadow-sm" />
+                      <img
+                        src={guide.author.avatar}
+                        alt={guide.author.name}
+                        className="w-10 h-10 rounded-full object-cover border-2 border-border shadow-sm"
+                        loading="lazy"
+                        decoding="async"
+                      />
                       <div className="text-sm font-medium text-foreground">{guide.author.name}</div>
                     </div>
                     
@@ -197,6 +210,7 @@ export function GuidesHub() {
           </div>
         )}
 
+        <AdUnit slotKey="hubInArticle" minHeight={140} className="mt-12" />
         <FAQSection title="China Travel Guide Questions" faqs={guideFaqs} />
       </div>
     </div>

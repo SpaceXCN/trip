@@ -19,6 +19,8 @@ cp .env.example .env
 
 Keep ad units clearly separated from navigation, download, and share controls. The React ad component renders a compliant placeholder when a slot ID is missing, and renders an AdSense `<ins class="adsbygoogle">` unit when the slot is configured.
 
+The production build also includes `public/ads.txt` and the `google-adsense-account` meta tag for publisher verification. Keep the publisher ID aligned across `index.html`, `public/ads.txt`, `.env`, and the AdSense account.
+
 ## GEO And SEO Setup
 
 The production domain is configured as `https://cntripaimap.online`. Build SEO files before deployment so sitemap and robots metadata point to that domain.

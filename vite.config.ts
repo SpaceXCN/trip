@@ -33,4 +33,27 @@ export default defineConfig({
 
   // File types to support raw imports. Never add .css, .tsx, or .ts files to this.
   assetsInclude: ['**/*.svg', '**/*.csv'],
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          const normalizedId = id.replace(/\\/g, '/')
+
+          if (normalizedId.includes('/src/app/mockData.ts') || normalizedId.includes('/src/app/guideContent.ts')) {
+            return 'content-data'
+          }
+
+          if (normalizedId.includes('/src/app/components/AdUnit.tsx')) {
+            return 'ads'
+          }
+
+          if (normalizedId.includes('/src/app/seo.tsx')) {
+            return 'seo'
+          }
+
+          return undefined
+        },
+      },
+    },
+  },
 })

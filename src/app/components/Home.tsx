@@ -231,6 +231,9 @@ export function Home() {
           src={primaryItinerary?.image}
           alt="Great Wall route inspiration for a first China trip"
           className="absolute inset-0 h-full w-full object-cover"
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
         />
         <div className="absolute inset-0 bg-slate-950/65" />
         <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-slate-950 to-transparent" />
@@ -317,6 +320,8 @@ export function Home() {
                       src={itinerary.image}
                       alt={itinerary.title}
                       className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                      loading="lazy"
+                      decoding="async"
                     />
                     <span className="absolute left-3 top-3 rounded bg-slate-950 px-3 py-1 text-sm font-semibold text-white">
                       0{index + 1}
@@ -394,6 +399,8 @@ export function Home() {
                         src={destination.image}
                         alt={`${destination.name} travel guide`}
                         className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                        loading="lazy"
+                        decoding="async"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-950/65 to-transparent" />
                       <div className="absolute bottom-3 left-3 flex items-center gap-2 text-white">
@@ -555,6 +562,8 @@ export function Home() {
                     src={guide.image}
                     alt={guide.title}
                     className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
                 <div className="p-5">

@@ -9,6 +9,7 @@ import {
   buildFaqJsonLd,
   buildWebPageJsonLd,
 } from "../seo";
+import { AdUnit } from "./AdUnit";
 
 const cuisineFaqs = [
   {
@@ -95,6 +96,7 @@ export function CuisinesHub() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <AdUnit slotKey="hubLeaderboard" minHeight={96} className="mb-12" />
         
         <div className="mb-12 text-center max-w-3xl mx-auto">
           <h2 className="mb-4 text-foreground">The Eight Great Cuisines of China</h2>
@@ -111,6 +113,8 @@ export function CuisinesHub() {
                   src={cuisine.image} 
                   alt={cuisine.name} 
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div className="absolute top-4 right-4 bg-background/90 backdrop-blur-sm px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-sm text-foreground">
                   <Flame className={`w-4 h-4 ${cuisine.spicyLevel > 3 ? 'text-destructive' : 'text-orange-500'}`} />
@@ -156,6 +160,7 @@ export function CuisinesHub() {
           ))}
         </div>
 
+        <AdUnit slotKey="hubInArticle" minHeight={140} className="mt-12" />
         <FAQSection title="Chinese Cuisine Questions" faqs={cuisineFaqs} />
       </div>
     </div>

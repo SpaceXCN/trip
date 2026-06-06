@@ -10,6 +10,7 @@ import {
   buildFaqJsonLd,
   buildWebPageJsonLd,
 } from "../seo";
+import { AdUnit } from "./AdUnit";
 
 const itineraryFaqs = [
   {
@@ -86,6 +87,9 @@ export function ItinerariesHub() {
             src="https://images.unsplash.com/photo-1564632570063-9ce5e7bd724e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGluYSUyMGJ1bGxldCUyMHRyYWlufGVufDF8fHx8MTc3OTIwMjU3Mnww&ixlib=rb-4.1.0&q=80&w=1080" 
             alt="China high-speed train for itinerary planning" 
             className="w-full h-full object-cover"
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent"></div>
         </div>
@@ -119,6 +123,8 @@ export function ItinerariesHub() {
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <AdUnit slotKey="hubLeaderboard" minHeight={96} className="mb-12" />
+
         <div className="mb-10">
           <h2 className="text-2xl font-bold text-slate-900">
             {filteredItineraries.length} {filteredItineraries.length === 1 ? 'Route' : 'Routes'} Available
@@ -134,6 +140,8 @@ export function ItinerariesHub() {
                   src={itinerary.image} 
                   alt={itinerary.title} 
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div className="absolute top-4 left-4">
                   <span className="bg-white/90 backdrop-blur-md text-slate-900 font-bold px-4 py-1.5 rounded-full text-sm shadow-sm flex items-center gap-1.5">
@@ -194,6 +202,7 @@ export function ItinerariesHub() {
           ))}
         </div>
 
+        <AdUnit slotKey="hubInArticle" minHeight={140} className="mt-12" />
         <FAQSection title="China Itinerary Questions" faqs={itineraryFaqs} />
       </div>
     </div>
