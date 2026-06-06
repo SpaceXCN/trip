@@ -8,7 +8,8 @@ Roam China is a practical travel planner for international visitors planning tri
 - [China destinations](https://cntripaimap.online/destinations): City and region guides for Beijing, Shanghai, Xi'an, Chengdu, Guilin, Hangzhou, Hong Kong, and Zhangjiajie.
 - [China itineraries](https://cntripaimap.online/itineraries): Curated travel routes including classic first-time trips, nature routes, Silk Road travel, and Guangzhou food travel.
 - [Chinese cuisines](https://cntripaimap.online/cuisines): Regional cuisine guide covering major culinary traditions and signature dishes.
-- [Travel guides](https://cntripaimap.online/guides): Practical articles for first-time visitors, mobile payments, apps, transport, and food.
+- [Travel guides](https://cntripaimap.online/guides): Practical articles for first-time visitors, mobile payments, apps, high-speed rail, entry preparation, eSIM setup, budgets, hotels, transport, and food.
+- [China travel tools](https://cntripaimap.online/travel-tools): Pre-trip decision paths for entry checks, eSIM setup, payments, high-speed rail, budgets, and hotel areas.
 - [About Roam China](https://cntripaimap.online/about): Editorial mission, standards, and revenue disclosure.
 - [Contact](https://cntripaimap.online/contact): Corrections, advertising inquiries, and general feedback.
 - [Privacy Policy](https://cntripaimap.online/privacy-policy): Cookies, Google advertising, analytics, and contact details.
@@ -20,8 +21,14 @@ Roam China is a practical travel planner for international visitors planning tri
 - [Shanghai travel guide](https://cntripaimap.online/destination/shanghai): Bund, Lujiazui, gardens, and xiaolongbao.
 - [Chengdu travel guide](https://cntripaimap.online/destination/chengdu): Panda base, teahouses, Sichuan food, and relaxed city travel.
 - [Classic 14-day China itinerary](https://cntripaimap.online/itinerary/classic-14-days): Beijing, Xi'an, Chengdu, and Shanghai.
+- [China travel tools](https://cntripaimap.online/travel-tools): Planning checklist that links entry, connectivity, payments, rail, budgets, and stay areas.
 - [Chinese travel apps guide](https://cntripaimap.online/guide/g2): Alipay, WeChat, Didi, maps, translation, and connectivity.
 - [Food travel guide to China](https://cntripaimap.online/guide/g3): Regional cuisines, ordering advice, and dining etiquette.
+- [China high-speed rail guide](https://cntripaimap.online/guide/g4): 12306 booking, passport checks, station choice, seat classes, and transfer timing.
+- [China entry checklist](https://cntripaimap.online/guide/g5): Visa-free transit checks, passports, official source verification, and arrival setup.
+- [China internet and eSIM guide](https://cntripaimap.online/guide/g6): Mobile data, roaming, hotel Wi-Fi, translation backups, and connectivity planning.
+- [China travel budget guide](https://cntripaimap.online/guide/g7): Hotels, transport, food, attractions, payment backups, and where costs rise.
+- [Where to stay in China](https://cntripaimap.online/guide/g8): Hotel areas for Beijing, Shanghai, Chengdu, and Guilin with first-night logistics.
 
 ## Editorial Notes
 

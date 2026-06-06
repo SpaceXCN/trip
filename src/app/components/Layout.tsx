@@ -1,5 +1,6 @@
 import { Outlet, Link } from "react-router";
 import { Compass, Search, Menu } from "lucide-react";
+import { CookieNotice } from "./CookieNotice";
 
 export function Layout() {
   return (
@@ -18,6 +19,7 @@ export function Layout() {
               <Link to="/" className="text-sm font-medium text-slate-700 hover:text-red-600">Home</Link>
               <Link to="/destinations" className="text-sm font-medium text-slate-700 hover:text-red-600">Destinations</Link>
               <Link to="/itineraries" className="text-sm font-medium text-slate-700 hover:text-red-600">Itineraries</Link>
+              <Link to="/travel-tools" className="text-sm font-medium text-slate-700 hover:text-red-600">Tools</Link>
               <Link to="/cuisines" className="text-sm font-medium text-slate-700 hover:text-red-600">Cuisines</Link>
               <Link to="/guides" className="text-sm font-medium text-slate-700 hover:text-red-600">Tips & Guides</Link>
             </nav>
@@ -64,7 +66,8 @@ export function Layout() {
             <h4 className="text-white font-medium mb-4">Help Center</h4>
             <ul className="space-y-2 text-sm">
               <li><Link to="/guides" className="hover:text-white transition-colors">FAQ</Link></li>
-              <li><Link to="/guides" className="hover:text-white transition-colors">Visa Guide</Link></li>
+              <li><Link to="/travel-tools" className="hover:text-white transition-colors">Travel Tools</Link></li>
+              <li><Link to="/guide/g5" className="hover:text-white transition-colors">Visa Guide</Link></li>
               <li><Link to="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
             </ul>
           </div>
@@ -81,6 +84,7 @@ export function Layout() {
           &copy; {new Date().getFullYear()} Roam China. All rights reserved.
         </div>
       </footer>
+      <CookieNotice />
     </div>
   );
 }

@@ -114,6 +114,7 @@ const pages: Record<string, TrustPageConfig> = {
         body: [
           "This site may use Google AdSense or related Google advertising products. Google and its partners may use cookies, web beacons, IP addresses, and similar technologies to serve ads, limit ad repetition, measure ad performance, and support fraud prevention.",
           "Google may use advertising cookies to serve ads based on a visitor's prior visits to this site or other websites. Visitors can manage personalized advertising choices through Google ad settings.",
+          "A site notice may appear to highlight these advertising and cookie practices. Dismissing the notice only hides that reminder in the current browser; it does not disable cookies, analytics, or advertising technologies.",
         ],
         links: [
           {
@@ -136,6 +137,7 @@ const pages: Record<string, TrustPageConfig> = {
         heading: "Your choices",
         body: [
           "You can block or delete cookies through your browser settings. You can also use Google ad settings to manage personalized advertising preferences. Some site or advertising features may work differently if cookies are disabled.",
+          "If you do not want the local notice dismissal stored, clear this site's local storage or browser data. This affects the notice state only and does not change Google advertising preferences.",
         ],
       },
       {

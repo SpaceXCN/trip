@@ -91,15 +91,21 @@ const destinationAngles: Record<
 
 const planningTopics = [
   {
+    title: "Pre-trip decision tools",
+    summary: "Entry, eSIM, payments, trains, budget, and hotel choices in one checklist.",
+    href: "/travel-tools",
+    icon: BadgeCheck,
+  },
+  {
     title: "Payments and apps",
     summary: "Mobile payment setup, translation, maps, ride hailing, and train booking basics.",
-    href: "/guides",
+    href: "/guide/g2",
     icon: WalletCards,
   },
   {
     title: "Train-first routing",
     summary: "Build city pairs around high-speed rail when it saves airport transfer time.",
-    href: "/itineraries",
+    href: "/guide/g4",
     icon: Train,
   },
   {
@@ -111,19 +117,19 @@ const planningTopics = [
   {
     title: "Ticket friction",
     summary: "Spot attractions that require passport booking, time slots, or official channels.",
-    href: "/destinations",
+    href: "/guide/g5",
     icon: ShieldCheck,
   },
   {
     title: "Connectivity stack",
     summary: "Plan eSIM, hotel Wi-Fi, backup translation, and offline screenshots before landing.",
-    href: "/guides",
+    href: "/guide/g6",
     icon: Wifi,
   },
   {
     title: "Realistic budgets",
     summary: "Compare city costs, attraction fees, meal styles, and transport tradeoffs.",
-    href: "/itineraries",
+    href: "/guide/g7",
     icon: CircleDollarSign,
   },
 ];
@@ -159,11 +165,13 @@ const editorialStandards = [
 
 export function Home() {
   const pageDescription =
-    "Plan a China trip with research-backed itineraries, destination playbooks, food routes, transport setup, ticket advice, and first-time visitor checklists.";
+    "Plan a China trip with research-backed itineraries, destination playbooks, travel tools, food routes, transport setup, ticket advice, and first-time visitor checklists.";
 
   const primaryItinerary = ITINERARIES[0];
   const routeCards = ITINERARIES.slice(0, 3);
-  const guideCards = GUIDES.slice(0, 3);
+  const guideCards = ["g5", "g6", "g8"].flatMap((id) =>
+    GUIDES.filter((guide) => guide.id === id).slice(0, 1),
+  );
 
   const jsonLd = [
     buildOrganizationJsonLd(),

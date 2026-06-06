@@ -27,6 +27,9 @@ const lazyGuidesHub = async () => ({
   Component: (await import("./components/GuidesHub")).GuidesHub,
 });
 const lazyGuide = async () => ({ Component: (await import("./components/Guide")).Guide });
+const lazyTravelTools = async () => ({
+  Component: (await import("./components/TravelTools")).TravelTools,
+});
 const lazyAbout = async () => ({
   Component: (await import("./components/TrustPage")).AboutPage,
 });
@@ -55,6 +58,7 @@ export const router = createBrowserRouter([
       { path: "food/:foodId", lazy: lazyFoodMenu },
       { path: "guides", lazy: lazyGuidesHub },
       { path: "guide/:id", lazy: lazyGuide },
+      { path: "travel-tools", lazy: lazyTravelTools },
       { path: "about", lazy: lazyAbout },
       { path: "contact", lazy: lazyContact },
       { path: "privacy-policy", lazy: lazyPrivacyPolicy },

@@ -7,6 +7,7 @@ import {
   ChevronLeft,
   Clock,
   Eye,
+  ExternalLink,
   Heart,
   MessageCircle,
   Share2,
@@ -243,6 +244,28 @@ export function Guide() {
                 </section>
               ))}
             </div>
+
+            {article.sourceLinks && (
+              <section className="mt-12 rounded-2xl border border-slate-200 bg-slate-50 p-6">
+                <h2 className="text-2xl font-bold text-slate-900">Official checkpoints</h2>
+                <p className="mt-3 text-base leading-7 text-slate-600">
+                  Use these official sources to verify ticketing, entry, or policy details before
+                  travel.
+                </p>
+                <div className="mt-5 flex flex-wrap gap-3">
+                  {article.sourceLinks.map((source) => (
+                    <a
+                      key={source.href}
+                      href={source.href}
+                      className="inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-[#0f766e] transition hover:border-[#0f766e]"
+                    >
+                      {source.label}
+                      <ExternalLink className="h-4 w-4" />
+                    </a>
+                  ))}
+                </div>
+              </section>
+            )}
 
             <FAQSection title="Article Questions" faqs={article.faqs} />
 

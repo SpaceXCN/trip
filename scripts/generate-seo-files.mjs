@@ -52,7 +52,7 @@ const foodIds = [
   "sanxiaguo",
 ];
 
-const guideIds = ["g1", "g2", "g3"];
+const guideIds = ["g1", "g2", "g3", "g4", "g5", "g6", "g7", "g8"];
 
 const staticPaths = [
   "/",
@@ -60,6 +60,7 @@ const staticPaths = [
   "/itineraries",
   "/cuisines",
   "/guides",
+  "/travel-tools",
   "/about",
   "/contact",
   "/privacy-policy",

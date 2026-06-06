@@ -16,7 +16,7 @@ const guideFaqs = [
   {
     question: "What should I read before a first China trip?",
     answer:
-      "Start with practical articles on mobile payments, travel apps, connectivity, trains, cultural norms, and a first-time itinerary.",
+      "Start with practical articles on mobile payments, travel apps, connectivity, trains, entry documents, hotels, budgets, cultural norms, and a first-time itinerary.",
   },
   {
     question: "Are China travel apps important for visitors?",
@@ -26,7 +26,7 @@ const guideFaqs = [
   {
     question: "How do these guides help with trip planning?",
     answer:
-      "They turn common pre-trip questions into direct answers, checklists, and route ideas for international travelers.",
+      "They turn common pre-trip questions into direct answers, checklists, official-source reminders, stay-area decisions, and route ideas for international travelers.",
   },
 ];
 
@@ -43,7 +43,7 @@ export function GuidesHub() {
   });
 
   const pageDescription =
-    "Read practical China travel tips for international visitors, including apps, payments, food, cultural basics, and first-time itinerary planning.";
+    "Read practical China travel tips for international visitors, including apps, payments, high-speed rail, entry checklists, eSIM setup, budgets, hotels, food, and first-time itinerary planning.";
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "ItemList",

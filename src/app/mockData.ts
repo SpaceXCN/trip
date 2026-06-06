@@ -1324,6 +1324,66 @@ export const GUIDES = [
     likes: 4100,
     views: "32k",
     tags: ["Food", "Culture", "Tips"]
+  },
+  {
+    id: "g4",
+    title: "China High-Speed Rail Guide: 12306 Tickets, Stations, and Seat Classes",
+    author: {
+      name: "Mark In Asia",
+      avatar: "https://images.unsplash.com/photo-1566492031773-4f4e44671857?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwb3J0cmFpdCUyMG1hbGUlMjBnbGFzc2VzfGVufDF8fHx8MTc3OTE5MTQ3OXww&ixlib=rb-4.1.0&q=80&w=1080"
+    },
+    image: "https://images.unsplash.com/photo-1564632570063-9ce5e7bd724e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080",
+    likes: 4630,
+    views: "41k",
+    tags: ["Transport", "Trains", "Tickets"]
+  },
+  {
+    id: "g5",
+    title: "China Entry Checklist: Visa-Free Transit, Passports, and Arrival Setup",
+    author: {
+      name: "Sarah Traveler",
+      avatar: "https://images.unsplash.com/photo-1506863530036-1efeddceb993?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwb3J0cmFpdCUyMGZlbWFsZSUyMHNtaWxlfGVufDF8fHx8MTc3OTIwMDY4N3ww&ixlib=rb-4.1.0&q=80&w=1080"
+    },
+    image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080",
+    likes: 5210,
+    views: "52k",
+    tags: ["Entry", "Visa", "First-Timers"]
+  },
+  {
+    id: "g6",
+    title: "China Internet and eSIM Guide: Mobile Data, Wi-Fi, and Backup Access",
+    author: {
+      name: "Mark In Asia",
+      avatar: "https://images.unsplash.com/photo-1566492031773-4f4e44671857?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwb3J0cmFpdCUyMG1hbGUlMjBnbGFzc2VzfGVufDF8fHx8MTc3OTE5MTQ3OXww&ixlib=rb-4.1.0&q=80&w=1080"
+    },
+    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080",
+    likes: 3980,
+    views: "44k",
+    tags: ["Connectivity", "eSIM", "Apps"]
+  },
+  {
+    id: "g7",
+    title: "China Travel Budget Guide: Daily Costs, Payments, Hotels, and Transport",
+    author: {
+      name: "Sarah Traveler",
+      avatar: "https://images.unsplash.com/photo-1506863530036-1efeddceb993?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwb3J0cmFpdCUyMGZlbWFsZSUyMHNtaWxlfGVufDF8fHx8MTc3OTIwMDY4N3ww&ixlib=rb-4.1.0&q=80&w=1080"
+    },
+    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080",
+    likes: 4720,
+    views: "49k",
+    tags: ["Budget", "Costs", "Planning"]
+  },
+  {
+    id: "g8",
+    title: "Where to Stay in China: Hotel Areas for Beijing, Shanghai, Chengdu, and Guilin",
+    author: {
+      name: "Sarah Traveler",
+      avatar: "https://images.unsplash.com/photo-1506863530036-1efeddceb993?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwb3J0cmFpdCUyMGZlbWFsZSUyMHNtaWxlfGVufDF8fHx8MTc3OTIwMDY4N3ww&ixlib=rb-4.1.0&q=80&w=1080"
+    },
+    image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080",
+    likes: 5340,
+    views: "57k",
+    tags: ["Hotels", "Stay Areas", "Planning"]
   }
 ];
 
